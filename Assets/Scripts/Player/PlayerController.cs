@@ -8,13 +8,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rigid;
-    public event Action OnAttack;
 
     [Header("Move")]
     private Vector2 moveInput;
     [SerializeField] private float moveSpeed = 10f;
-
-
 
     private void Awake()
     {
@@ -28,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 dir = transform.forward * moveInput.x;
+        Vector3 dir = transform.right * moveInput.x;
         dir *= moveSpeed;
         rigid.velocity = dir;
     }
@@ -43,10 +40,5 @@ public class PlayerController : MonoBehaviour
         {
             moveInput = Vector2.zero;
         }
-    }
-
-    public void Attack()
-    {
-        OnAttack?.Invoke();
     }
 }
