@@ -10,7 +10,8 @@ public enum ObjectPoolType
     EnemyObject,
     ItemObject,
     ObstacleObject,
-    ProjectileObject
+    ProjectileObject,
+    ParticleEffectObject
 }
 
 [Serializable]
@@ -25,42 +26,13 @@ public class PoolInfo
     public Queue<GameObject> PoolQueue = new Queue<GameObject>();
 }
 
-public class ObjectPoolManager : MonoBehaviour
+public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
 {
-    private static ObjectPoolManager _instance;
-    public static ObjectPoolManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = GameObject.FindObjectOfType<ObjectPoolManager>();
-
-                if (_instance == null)
-                {
-                    GameObject singletoneObj = new GameObject(typeof(ObjectPoolManager).Name);
-                    _instance = singletoneObj.AddComponent<ObjectPoolManager>();
-                    DontDestroyOnLoad(singletoneObj);
-                }
-            }
-            return _instance;
-        }
-    }
-    
     // 오브젝트풀 리스트
     [SerializeField] private List<PoolInfo> listOfPool;
         
     private void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-
         InitializeObjectPool();
     }
 
