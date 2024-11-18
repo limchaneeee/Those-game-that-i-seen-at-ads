@@ -6,10 +6,10 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [field: SerializeField] public EnemySO enemyData { get; private set; }
+    [field: SerializeField] public EnemySO Data { get; private set; }
 
-    private NavMeshAgent agent;
-
+    public NavMeshAgent agent;
+    public Transform player;
 
     private void Awake()
     {
@@ -18,16 +18,29 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        EnemyMovement();
+        agent.speed = Data.EnemyData.EnemySpeed;
+        player = GameObject.FindWithTag("Player").transform;
     }
     void Update()
     {
-
+        EnemyMovement();
+        EnemyChasing();
     }
 
     private void EnemyMovement()
     {
-        throw new NotImplementedException();
+        Vector3 movement = Vector3.back * Data.EnemyData.EnemySpeed * Time.deltaTime;
+        agent.Move(movement);
     }
 
+    private void EnemyChasing() 
+    {
+        //플레이어와 거리계산
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= Data.EnemyData.EnemyChasingRange)
+        {
+            agent.SetDestination(player.position);
+        }
+    }
 }
