@@ -36,4 +36,15 @@ public class Bullet : MonoBehaviour
     {
         bulletPool?.ReturnBullet(gameObject);
     }
+
+    //Test
+    private void OnTriggerEnter(Collider other)
+    {
+        ICollisionable collisionable = other.gameObject.GetComponent<ICollisionable>();
+        if (collisionable != null)
+        {
+            collisionable.OnBulletHit();
+            Deactivate();
+        }
+    }
 }
