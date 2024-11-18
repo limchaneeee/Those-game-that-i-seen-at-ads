@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Test_Generate : MonoBehaviour
 {
-    // TODO: do cashing of obj's transform.position and new WaitForSeconds for Optimization
     
     public void Click()
     {
