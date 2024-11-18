@@ -431,8 +431,9 @@ GameObject:
   - component: {fileID: 1069225027}
   - component: {fileID: 1069225026}
   - component: {fileID: 1069225025}
+  - component: {fileID: 1069225028}
   m_Layer: 10
-  m_Name: PlayerNumObject
+  m_Name: PlayerNumChangeItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -516,6 +517,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 0}
   speed: 3
+--- !u!114 &1069225028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069225023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb4f6d2fbe594446abfda4ba69ecacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  count: -20
 --- !u!1 &1289439891
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,8 +766,9 @@ GameObject:
   - component: {fileID: 1510749624}
   - component: {fileID: 1510749623}
   - component: {fileID: 1510749622}
+  - component: {fileID: 1510749625}
   m_Layer: 10
-  m_Name: UpgradeObject
+  m_Name: UpgradeItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,6 +852,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 0}
   speed: 3
+--- !u!114 &1510749625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510749620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ccfc6d8ba756a498a8b7fe49599f25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  upgradeValue: 0
+  count: 20
 --- !u!1 &1670911719
 GameObject:
   m_ObjectHideFlags: 0

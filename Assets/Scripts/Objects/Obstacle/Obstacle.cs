@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, ICollisionable
+public class Obstacle : MonoBehaviour, ICollisionHandler
 {
     [SerializeField] private int count;
 
@@ -15,5 +15,15 @@ public class Obstacle : MonoBehaviour, ICollisionable
             // ObjectPool - Release
             Destroy(gameObject);
         }
+    }
+
+    public void OnPlayerHit()
+    {
+
+    }
+
+    public void OnPlayerCloneHit()
+    {
+
     }
 }

@@ -9,7 +9,7 @@ public enum UpgradeType
     ShootCoolTime
 }
 
-public class UpgradeItem : MonoBehaviour, ICollisionable
+public class UpgradeItem : MonoBehaviour, ICollisionHandler
 {
     [SerializeField] private UpgradeType type;
     [SerializeField] private float upgradeValue;
@@ -26,6 +26,16 @@ public class UpgradeItem : MonoBehaviour, ICollisionable
             //ObjectPool - Release
             Destroy(gameObject);
         }
+    }
+
+    public void OnPlayerHit()
+    {
+
+    }
+
+    public void OnPlayerCloneHit()
+    {
+
     }
 
     private void UpgradePlayer()

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public PlayerController controller;
     public PlayerSO playerSO;
+    public PlayerClone playerClone;
 
     private void Awake()
     {

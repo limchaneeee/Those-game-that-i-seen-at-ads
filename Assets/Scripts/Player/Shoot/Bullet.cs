@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
     //Test
     private void OnTriggerEnter(Collider other)
     {
-        ICollisionable collisionable = other.gameObject.GetComponent<ICollisionable>();
+        ICollisionHandler collisionable = other.gameObject.GetComponent<ICollisionHandler>();
         if (collisionable != null)
         {
             collisionable.OnBulletHit();

@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICollisionable
+public interface ICollisionHandler
 {
     public void OnBulletHit();
+    public void OnPlayerHit();
+    public void OnPlayerCloneHit();
 }
