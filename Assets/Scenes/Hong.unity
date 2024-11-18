@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269699296}
   - component: {fileID: 269699295}
+  - component: {fileID: 269699297}
   m_Layer: 0
   m_Name: BulletPoolManager
   m_TagString: Untagged
@@ -152,9 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56f1ec9bab31a0469517f503925a298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2376200896670225959, guid: 19c70a02a1589bd448d889450b8b144d,
-    type: 3}
-  poolSize: 30
 --- !u!4 &269699296
 Transform:
   m_ObjectHideFlags: 0
@@ -170,6 +168,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269699297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269699294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c0437a6bb37634496c8926d6621d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfPool:
+  - type: 4
+    amount: 30
+    prefab: {fileID: 2376200896670225959, guid: 19c70a02a1589bd448d889450b8b144d,
+      type: 3}
+    container: {fileID: 989396116}
 --- !u!1 &331469606 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4550366659490311135, guid: c311c42368a2faf498a1cb2e45a67122,
@@ -191,6 +207,12 @@ MonoBehaviour:
   dieLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!1 &989396116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4667810501449108900, guid: c311c42368a2faf498a1cb2e45a67122,
+    type: 3}
+  m_PrefabInstance: {fileID: 7951163296903905634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1214818135
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +313,7 @@ Transform:
   m_GameObject: {fileID: 1214818135}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.779724, y: 7.96, z: 0.49}
+  m_LocalPosition: {x: 21.3, y: 7.96, z: 0.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
