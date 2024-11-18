@@ -11,9 +11,12 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
 
+    private float health;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        health = Data.EnemyData.EnemyHp;
     }
 
     void Start()
@@ -43,4 +46,20 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(player.position);
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;  
+
+        if (health <= 0)
+        {
+            Die();  
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);  
+    }
+
 }
