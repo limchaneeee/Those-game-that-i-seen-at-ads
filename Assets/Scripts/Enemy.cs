@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyChasing() 
     {
-        //ÇÃ·¹ÀÌ¾î¿Í °Å¸®°è»ê
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= Data.EnemyData.EnemyChasingRange)
