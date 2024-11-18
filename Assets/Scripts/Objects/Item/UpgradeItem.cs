@@ -21,10 +21,22 @@ public class UpgradeItem : MonoBehaviour, ICollisionable
 
         if (count <= 0)
         {
-            //UpgradePlayer();
+            UpgradePlayer();
 
             //ObjectPool - Release
             Destroy(gameObject);
+        }
+    }
+
+    private void UpgradePlayer()
+    {
+        if (type == UpgradeType.Damage)
+        {
+            CharacterManager.Instance.Player.playerSO.damage += upgradeValue;
+        }
+        else if (type == UpgradeType.ShootCoolTime)
+        {
+            CharacterManager.Instance.Player.playerSO.shootCoolTime -= upgradeValue;
         }
     }
 }
