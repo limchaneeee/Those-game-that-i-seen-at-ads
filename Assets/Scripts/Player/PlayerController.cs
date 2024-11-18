@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Move")]
     private Vector2 moveInput;
-    [SerializeField] private float moveSpeed = 10f;
+    //[SerializeField] private float moveSpeed = 10f; //SO에서 가져와 쓰도록
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Vector3 dir = transform.right * moveInput.x;
-        dir *= moveSpeed;
+        dir *= CharacterManager.Instance.Player.playerSO.playerMoveSpeed;
         rigid.velocity = dir;
     }
 
