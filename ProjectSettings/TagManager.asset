@@ -15,7 +15,7 @@ TagManager:
   - PlayerClone
   - Enemy
   - Ground
-  - 
+  - CollisionableObject
   - 
   - 
   - 
