@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] private BulletPool bulletPool;
+    //[SerializeField] private ObjectPoolManager bulletPool;
     [SerializeField] private GameObject shootPos;
     //[SerializeField] private float shootCoolTime; //SO에서 가져오도록
     private float lastTime;
@@ -22,9 +22,9 @@ public class PlayerShooting : MonoBehaviour
 
     private void SpawnBullet()
     {
-        GameObject bullet = bulletPool.GetBullet();
+        GameObject bullet = ObjectPoolManager.Instance.GetPoolObject(ObjectPoolType.ProjectileObject);
         bullet.transform.position = shootPos.transform.position;
-        bulletPool.transform.rotation = Quaternion.identity;
+        ObjectPoolManager.Instance.transform.rotation = Quaternion.identity;
     }
 
 }

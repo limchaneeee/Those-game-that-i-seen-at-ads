@@ -1,16 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float lifeTime = 2f;
-
-    private BulletPool bulletPool;
-
-    public void SetPool(BulletPool pool)
-    {
-        bulletPool = pool;
-    }
+    
+    //private ObjectPoolManager bulletPool;
 
     private void OnEnable()
     {
@@ -34,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     private void Deactivate()
     {
-        bulletPool?.ReturnBullet(gameObject);
+        ObjectPoolManager.Instance.GetBackObject(gameObject,ObjectPoolType.ProjectileObject);
     }
 
     //Test
