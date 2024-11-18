@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,9 @@ public enum UpgradeType
 
 public class UpgradeItem : MonoBehaviour, ICollisionable
 {
-    [SerializeField] UpgradeType type;
-    [SerializeField] private float count;
+    [SerializeField] private UpgradeType type;
+    [SerializeField] private float upgradeValue;
+    [SerializeField] private int count;
 
     public void OnBulletHit()
     {

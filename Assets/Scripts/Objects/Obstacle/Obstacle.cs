@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour, ICollisionable
 {
-    [SerializeField] private float count;
+    [SerializeField] private int count;
 
     public void OnBulletHit()
     {
