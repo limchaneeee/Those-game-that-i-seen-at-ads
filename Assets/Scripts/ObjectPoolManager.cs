@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 
 public enum ObjectPoolType
@@ -31,8 +29,9 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
     // 오브젝트풀 리스트
     [SerializeField] private List<PoolInfo> listOfPool;
         
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         InitializeObjectPool();
     }
 
