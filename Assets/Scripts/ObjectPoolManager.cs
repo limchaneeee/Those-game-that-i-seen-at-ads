@@ -9,7 +9,8 @@ public enum ObjectPoolType
     PlayerObject,
     EnemyObject,
     ItemObject,
-    ObstacleObject
+    ObstacleObject,
+    ProjectileObject
 }
 
 [Serializable]
@@ -103,7 +104,8 @@ public class ObjectPoolManager : MonoBehaviour
         obj.SetActive(true);
         return obj;
     }
-
+    
+    // 오브젝트풀에서 해당오브젝트 쓰고나서 비활성화 하는 메서드
     public void GetBackObject(GameObject obj, ObjectPoolType poolType)
     {
         PoolInfo selectedPool = GetPoolByType(poolType);
