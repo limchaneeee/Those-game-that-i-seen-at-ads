@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 
     private void Shoot()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += speed * Time.deltaTime * transform.forward ;
     }
 
     private void Deactivate()

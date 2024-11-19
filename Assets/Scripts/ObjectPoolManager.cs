@@ -18,7 +18,6 @@ public class PoolInfo
     public ObjectPoolType type;
     public int amount = 0;
     public GameObject prefab;
-    public GameObject container;
     
     [HideInInspector]
     public Queue<GameObject> PoolQueue = new Queue<GameObject>();
@@ -52,7 +51,7 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
     private GameObject CreatNewObject(PoolInfo poolInfo)
     {
         GameObject obj = null;
-        obj = Instantiate(poolInfo.prefab, poolInfo.container.transform);
+        obj = Instantiate(poolInfo.prefab);
         obj.gameObject.SetActive(false);
 
         return obj;
