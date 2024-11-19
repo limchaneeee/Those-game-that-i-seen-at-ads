@@ -19,11 +19,11 @@ public class Obstacle : MonoBehaviour, ICollisionHandler
 
     public void OnPlayerHit()
     {
-
+        CharacterManager.Instance.Player.playerClone.DecreasePlayerClone(count);
     }
 
     public void OnPlayerCloneHit()
     {
-
+        CharacterManager.Instance.Player.playerClone.DeActivateClone();
     }
 }
