@@ -25,7 +25,7 @@ public class Boss : MonoBehaviour
         StartCoroutine(AttackPatternRoutine());
     }
 
-    private IEnumerator AttackPatternRoutine()
+    public IEnumerator AttackPatternRoutine()
     {
         while (!isDead)
         {
@@ -59,7 +59,10 @@ public class Boss : MonoBehaviour
     {
         // 패턴 2: 프리팹 발사 (Bullet 발사?)
         Vector3 forwardDirection = transform.forward;
-        Vector3 spawnPosition = transform.position + forwardDirection * -2f;  
+        Vector3 spawnPosition = transform.position + forwardDirection * -2f;
+
+        spawnPosition.y = transform.position.y - 2f;
+
         Instantiate(attackPrefab2, spawnPosition, Quaternion.identity);
 
         // 만약 bullet 받아온다면 > 좌표 수정 할 것, 현재도 y값 수정 필요
