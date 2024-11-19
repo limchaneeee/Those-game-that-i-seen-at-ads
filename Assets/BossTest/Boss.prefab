@@ -121,10 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossData: {fileID: 11400000, guid: 1fc2dbdef97c8d040849ec3b9c64c57b, type: 2}
-  isMoving: 0
   attackPrefab1: {fileID: 6407889206255760950, guid: 6243c953e549f604f882d4bdb0ee033e,
     type: 3}
-  attackPrefab2: {fileID: 4022217444556064715, guid: e8c038576000fa54580f8dcc11d759a2,
+  attackPrefab2: {fileID: 2376200896670225959, guid: 19c70a02a1589bd448d889450b8b144d,
     type: 3}
   attackPrefab3: {fileID: 7661745328698534004, guid: f1652a29fac7ed94390551dfe4a73b67,
     type: 3}
@@ -135,4 +134,4 @@ MonoBehaviour:
   spawnPositionsForPattern3:
   - {x: 0.25, y: 1, z: 6.5}
   attackInterval: 5
-  targetPosition: {x: 0, y: 3.6, z: 14.5}
+  playerData: {fileID: 11400000, guid: 961ccf4b45d67e24192c69300c1896e1, type: 2}

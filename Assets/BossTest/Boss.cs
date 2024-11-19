@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss : MonoBehaviour, ICollisionable 
 {
     [Header("Boss Stats")]
     [SerializeField] private BossSO bossData;  // SO 데이터
@@ -18,6 +18,9 @@ public class Boss : MonoBehaviour
 
     [Header("Attack Interval")]
     [SerializeField] private float attackInterval = 5f;  // 공격 딜레이
+
+    [Header("Player Stats")]
+    [SerializeField] private PlayerSO playerData;
 
     private void Start()
     {
@@ -36,13 +39,13 @@ public class Boss : MonoBehaviour
             switch (patternIndex)
             {
                 case 0:
-                    ExecuteAttackPattern1(); 
+                    ExecuteAttackPattern1();
                     break;
                 case 1:
-                    ExecuteAttackPattern2();  
+                    ExecuteAttackPattern2();
                     break;
                 case 2:
-                    ExecuteAttackPattern3();  
+                    ExecuteAttackPattern3();
                     break;
             }
         }
@@ -59,25 +62,26 @@ public class Boss : MonoBehaviour
     {
         // 패턴 2: 프리팹 발사 (Bullet 발사?)
         Vector3 forwardDirection = transform.forward;
-        Vector3 spawnPosition = transform.position + forwardDirection * -2f;
+        Vector3 spawnPosition = transform.position + forwardDirection * 2f;
 
         spawnPosition.y = transform.position.y - 2f;
 
         Instantiate(attackPrefab2, spawnPosition, Quaternion.identity);
-
-        // 만약 bullet 받아온다면 > 좌표 수정 할 것, 현재도 y값 수정 필요
     }
 
     private void ExecuteAttackPattern3()
     {
-        // 패턴 3: 프리팹 여러개 소환 (적들 소환?)
+        // 패턴 3: 프리팹 여러 개 소환 (적들 소환?)
         foreach (Vector3 position in spawnPositionsForPattern3)
         {
             Instantiate(attackPrefab3, position, Quaternion.identity);
         }
     }
+    public void OnBulletHit()
+    {
+        TakeDamage(playerData.shootDamage); // player 의 shootDamage 만큼 피해
+    }
 
-    // 피해 받을 때,
     public void TakeDamage(float damage)
     {
         if (isDead) return;
@@ -89,7 +93,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    // 죽었을 때,
+    // 죽었을 때
     private void Die()
     {
         isDead = true;
