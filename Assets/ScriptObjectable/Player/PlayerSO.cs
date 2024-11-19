@@ -7,8 +7,7 @@ using UnityEngine;
 public class PlayerSO : ScriptableObject
 {
     public float playerMoveSpeed;
-    public float damage;
     public float shootCoolTime;
-    public int playerCloneNumber;
-    public GameObject playerClonePrefab;
+    public float shootDamage;
+    public GameObject playerPrefab;
 }

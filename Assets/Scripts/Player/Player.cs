@@ -6,12 +6,12 @@ public class Player : MonoBehaviour
 {
     public PlayerController controller;
     public PlayerSO playerSO;
-    public PlayerClone playerClone;
+    public PlayerShooting shooting;
 
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
-        playerClone = GetComponent<PlayerClone>();
+        shooting = GetComponent<PlayerShooting>();
     }
 }

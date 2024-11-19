@@ -19,7 +19,7 @@ public class Progress : MonoBehaviour
 
     private void Awake()
     {
-        progressBar = GetComponentInChildren<Image>(false);
+        //progressBar = GetComponentInChildren<Image>();
         meterTxt = GetComponentInChildren<TextMeshProUGUI>();
         curGauge = minGauge;
         onProgress += Getpercentage;
