@@ -53,7 +53,7 @@ public class PlayerClone : MonoBehaviour
         {
             foreach (GameObject clone in activeClones)
             {
-                clone.SetActive(false);
+                ObjectPoolManager.Instance.GetBackObject(clone, ObjectPoolType.PlayerObject);
             }
             activeClones.Clear();
         }
@@ -61,7 +61,7 @@ public class PlayerClone : MonoBehaviour
         {
             while (amount > 0)
             {
-                activeClones[activeClones.Count - 1].SetActive(false);
+                ObjectPoolManager.Instance.GetBackObject(activeClones[activeClones.Count - 1], ObjectPoolType.PlayerObject);
                 activeClones.RemoveAt(activeClones.Count - 1);
                 amount--;
             }
@@ -71,7 +71,7 @@ public class PlayerClone : MonoBehaviour
     public void DeActivateClone()
     {
         CharacterManager.Instance.Player.playerSO.playerCloneNumber--;
-        activeClones[activeClones.Count - 1].SetActive(false);
+        ObjectPoolManager.Instance.GetBackObject(activeClones[activeClones.Count - 1], ObjectPoolType.PlayerObject); ;
         activeClones.RemoveAt(activeClones.Count - 1);
     }
 }
