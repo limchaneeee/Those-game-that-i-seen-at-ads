@@ -13,4 +13,14 @@ public class PlayerCondition : MonoBehaviour
         }
 
     }
+    
+    //Test
+    private void OnTriggerEnter(Collider other)
+    {
+        ICollisionHandler collisionHandler = other.gameObject.GetComponent<ICollisionHandler>();
+        if (collisionHandler != null)
+        {
+            collisionHandler.OnPlayerHit();
+        }
+    }
 }

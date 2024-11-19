@@ -36,10 +36,10 @@ public class Bullet : MonoBehaviour
     //Test
     private void OnTriggerEnter(Collider other)
     {
-        ICollisionHandler collisionable = other.gameObject.GetComponent<ICollisionHandler>();
-        if (collisionable != null)
+        ICollisionHandler collisionHandler = other.gameObject.GetComponent<ICollisionHandler>();
+        if (collisionHandler != null)
         {
-            collisionable.OnBulletHit();
+            collisionHandler.OnBulletHit();
             Deactivate();
         }
     }
