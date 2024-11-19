@@ -23,7 +23,9 @@ public class PlayerShooting : MonoBehaviour
         GameObject bullet = ObjectPoolManager.Instance.GetPoolObject(ObjectPoolType.ProjectileObject);
         bullet.transform.position = shootPos.transform.position;
         ObjectPoolManager.Instance.transform.rotation = Quaternion.identity;
-
         OnShoot?.Invoke(CharacterManager.Instance.Player.playerSO.shootDamage);
+        SoundManager.Instance.PlaySFX(SoundFXType.GunShot);
+        
     }
+
 }
