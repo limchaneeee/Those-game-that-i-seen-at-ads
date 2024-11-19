@@ -24,14 +24,13 @@ public class Enemy : MonoBehaviour, ICollisionable
             Die();  
         }
     }
+    public void OnBulletHit()
+    {
+        TakeDamage(1);
+    }
 
     private void Die()
     {
         Destroy(gameObject);  
-    }
-
-    public void OnBulletHit()
-    {
-        TakeDamage(1);
     }
 }

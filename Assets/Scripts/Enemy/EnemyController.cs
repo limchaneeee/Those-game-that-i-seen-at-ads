@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
     }
 
+    // Update is called once per frame
     void Update()
     {
         EnemyMovement();

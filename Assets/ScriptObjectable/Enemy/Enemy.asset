@@ -16,4 +16,4 @@ MonoBehaviour:
     <EnemyHp>k__BackingField: 5
     <EnemyMaxHp>k__BackingField: 5
     <EnemySpeed>k__BackingField: 4
-    <EnemyChasingRange>k__BackingField: 2
+    <EnemyChasingRange>k__BackingField: 5
