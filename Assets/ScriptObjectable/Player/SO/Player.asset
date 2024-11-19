@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveSpeed: 10
   shootCoolTime: 0.2
+  shootDamage: 2
   playerPrefab: {fileID: 4550366659490311135, guid: c311c42368a2faf498a1cb2e45a67122,
     type: 3}
