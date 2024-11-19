@@ -1,29 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     [field: SerializeField] public EnemySO Data { get; private set; }
 
     public NavMeshAgent agent;
     public Transform player;
 
-    private float health;
-
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        health = Data.EnemyData.EnemyHp;
-    }
-
-    void Start()
-    {
         agent.speed = Data.EnemyData.EnemySpeed;
+
         player = GameObject.FindWithTag("Player").transform;
     }
+
+    // Update is called once per frame
     void Update()
     {
         EnemyMovement();
@@ -36,9 +31,8 @@ public class Enemy : MonoBehaviour
         agent.Move(movement);
     }
 
-    private void EnemyChasing() 
+    private void EnemyChasing()
     {
-        //�÷��̾�� �Ÿ����
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= Data.EnemyData.EnemyChasingRange)
@@ -46,20 +40,4 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(player.position);
         }
     }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;  
-
-        if (health <= 0)
-        {
-            Die();  
-        }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);  
-    }
-
 }

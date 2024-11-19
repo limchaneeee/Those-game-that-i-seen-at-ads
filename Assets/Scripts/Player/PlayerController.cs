@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Move")]
     private Vector2 moveInput;
-    //[SerializeField] private float moveSpeed = 10f; //SO¿¡¼­ °¡Á®¿Í ¾²µµ·Ï
+    //[SerializeField] private float moveSpeed = 10f; //SOï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     private void Awake()
     {
@@ -39,6 +39,14 @@ public class PlayerController : MonoBehaviour
         else if(context.phase == InputActionPhase.Canceled)
         {
             moveInput = Vector2.zero;
+        }
+    }
+    
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            GameManager.Instance.PauseGame();
         }
     }
 }
