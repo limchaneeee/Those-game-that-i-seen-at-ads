@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +5,38 @@ using UnityEngine;
 public enum UpgradeType
 {
     Damage,
-    ShootCoolTime
+    ShootCoolTime,
+    COUNT
 }
 
 public class UpgradeItem : MonoBehaviour, ICollisionHandler
 {
-    [SerializeField] private UpgradeType type;
-    [SerializeField] private float upgradeValue;
-    [SerializeField] private int count;
+    public ObjectPoolType poolType;
+    public UpgradeType type;
+    public int count;
+    public float upgradeValue;
+
+    private void OnEnable()
+    {
+        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        count = Random.Range(minCount, maxCount);
+        poolType = ObjectPoolType.UpgradeItemObject;
+        type = (UpgradeType)Random.Range(0, (int)UpgradeType.COUNT);
+        SetUpgradeValue();
+    }
+
+    public void SetUpgradeValue()
+    {
+        if (type == UpgradeType.Damage)
+        {
+            upgradeValue = Random.Range(0.5f, 5f);
+        }
+        else if (type == UpgradeType.ShootCoolTime)
+        {
+            upgradeValue = Random.Range(0.01f, 0.05f);
+        }
+    }
 
     public void OnBulletHit()
     {
@@ -23,8 +46,7 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
         {
             UpgradePlayer();
 
-            //ObjectPool - Release
-            Destroy(gameObject);
+            ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
         }
     }
 
@@ -36,6 +58,11 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
     public void OnPlayerCloneHit(GameObject obj)
     {
         CharacterManager.Instance.Player.cloneSpawner.DeActivateClone(obj);
+    }
+
+    public void OnBottomWallHit()
+    {
+        ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
     }
 
     private void UpgradePlayer()

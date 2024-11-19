@@ -2,16 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CloneNumChangeType
+public enum CloneVariationType
 {
     SubstractAdd,
-    DivideMultiply
+    DivideMultiply,
+    COUNT
 }
 
-public class CloneNumChangeItem : MonoBehaviour, ICollisionHandler
+
+public class CloneVariationItem : MonoBehaviour, ICollisionHandler
 {
-    [SerializeField] private CloneNumChangeType type;
-    [SerializeField] private int count;
+    public ObjectPoolType poolType;
+    public CloneVariationType type;
+    public int count;
+
+    private void OnEnable()
+    {
+        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        count = Random.Range(minCount, maxCount) * -1;
+        poolType = ObjectPoolType.CloneVariationItemObject;
+        type = (CloneVariationType)Random.Range(0, (int)CloneVariationType.COUNT);
+    }
 
     public void OnBulletHit()
     {
@@ -21,7 +33,7 @@ public class CloneNumChangeItem : MonoBehaviour, ICollisionHandler
 
     public void OnPlayerHit()
     {
-        if (type == CloneNumChangeType.SubstractAdd)
+        if (type == CloneVariationType.SubstractAdd)
         {
             if (count > 0)
             {
@@ -33,7 +45,7 @@ public class CloneNumChangeItem : MonoBehaviour, ICollisionHandler
                 CharacterManager.Instance.Player.cloneSpawner.DecreasePlayerClone(count);
             }
         }
-        else if (type == CloneNumChangeType.DivideMultiply)
+        else if (type == CloneVariationType.DivideMultiply)
         {
             if (count < 0)
             {
@@ -48,12 +60,16 @@ public class CloneNumChangeItem : MonoBehaviour, ICollisionHandler
             }
         }
 
-        //ObjectPool 사용 예정
-        Destroy(gameObject);
+        ObjectPoolManager.Instance.GetBackObject(gameObject, ObjectPoolType.CloneVariationItemObject);
     }
 
     public void OnPlayerCloneHit(GameObject obj)
     {
         return;
+    }
+
+    public void OnBottomWallHit()
+    {
+        ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
     }
 }

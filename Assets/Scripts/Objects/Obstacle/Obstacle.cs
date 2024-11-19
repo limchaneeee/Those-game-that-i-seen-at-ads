@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour, ICollisionHandler
 {
-    [SerializeField] private int count;
+    public ObjectPoolType poolType;
+    public int count;
+
+    private void OnEnable()
+    {
+        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        poolType = ObjectPoolType.ObstacleObject;
+        count = Random.Range(minCount, maxCount);
+    }
 
     public void OnBulletHit()
     {
@@ -12,8 +21,7 @@ public class Obstacle : MonoBehaviour, ICollisionHandler
 
         if (count <= 0)
         {
-            // ObjectPool - Release
-            Destroy(gameObject);
+            ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
         }
     }
 
@@ -25,5 +33,10 @@ public class Obstacle : MonoBehaviour, ICollisionHandler
     public void OnPlayerCloneHit(GameObject obj)
     {
         CharacterManager.Instance.Player.cloneSpawner.DeActivateClone(obj);
+    }
+
+    public void OnBottomWallHit()
+    {
+        ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
     }
 }
