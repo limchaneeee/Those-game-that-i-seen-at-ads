@@ -9,5 +9,5 @@ public class PlayerSO : ScriptableObject
     public float playerMoveSpeed;
     public float shootCoolTime;
     public float shootDamage;
-    public GameObject playerPrefab;
+    public int playerCloneNumber;
 }

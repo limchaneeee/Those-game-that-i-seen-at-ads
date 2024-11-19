@@ -42,7 +42,7 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
     {
         if (type == UpgradeType.Damage)
         {
-            CharacterManager.Instance.Player.playerSO.damage += upgradeValue;
+            CharacterManager.Instance.Player.playerSO.shootDamage += upgradeValue;
         }
         else if (type == UpgradeType.ShootCoolTime)
         {
