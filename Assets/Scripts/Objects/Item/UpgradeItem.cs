@@ -30,12 +30,12 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
 
     public void OnPlayerHit()
     {
-        CharacterManager.Instance.Player.playerClone.DecreasePlayerClone(count);
+        CharacterManager.Instance.Player.cloneSpawner.DecreasePlayerClone(count);
     }
 
-    public void OnPlayerCloneHit()
+    public void OnPlayerCloneHit(GameObject obj)
     {
-        CharacterManager.Instance.Player.playerClone.DeActivateClone();
+        CharacterManager.Instance.Player.cloneSpawner.DeActivateClone(obj);
     }
 
     private void UpgradePlayer()

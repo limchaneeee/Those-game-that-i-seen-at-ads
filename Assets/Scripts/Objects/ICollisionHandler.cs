@@ -6,5 +6,5 @@ public interface ICollisionHandler
 {
     public void OnBulletHit();
     public void OnPlayerHit();
-    public void OnPlayerCloneHit();
+    public void OnPlayerCloneHit(GameObject obj);
 }

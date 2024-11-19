@@ -176,7 +176,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4550366659490311135}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   playerSO: {fileID: 11400000, guid: 961ccf4b45d67e24192c69300c1896e1, type: 2}
+  cloneSpawner: {fileID: 0}
 --- !u!114 &1347965831599865816
 MonoBehaviour:
   m_ObjectHideFlags: 0

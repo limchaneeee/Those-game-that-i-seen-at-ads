@@ -25,12 +25,12 @@ public class CloneNumChangeItem : MonoBehaviour, ICollisionHandler
         {
             if (count > 0)
             {
-                CharacterManager.Instance.Player.playerClone.IncreasePlayerClone(count);
+                CharacterManager.Instance.Player.cloneSpawner.IncreasePlayerClone(count);
             }
             else if (count < 0)
             {
                 count *= -1;
-                CharacterManager.Instance.Player.playerClone.DecreasePlayerClone(count);
+                CharacterManager.Instance.Player.cloneSpawner.DecreasePlayerClone(count);
             }
         }
         else if (type == CloneNumChangeType.DivideMultiply)
@@ -39,12 +39,12 @@ public class CloneNumChangeItem : MonoBehaviour, ICollisionHandler
             {
                 count *= -1;
                 int amount = CharacterManager.Instance.Player.playerSO.playerCloneNumber * (1 - (1 / count));
-                CharacterManager.Instance.Player.playerClone.DecreasePlayerClone(amount);
+                CharacterManager.Instance.Player.cloneSpawner.DecreasePlayerClone(amount);
             }
             else if (count > 0)
             {
                 int amount = CharacterManager.Instance.Player.playerSO.playerCloneNumber * (count - 1);
-                CharacterManager.Instance.Player.playerClone.IncreasePlayerClone(amount);
+                CharacterManager.Instance.Player.cloneSpawner.IncreasePlayerClone(amount);
             }
         }
 
@@ -52,7 +52,7 @@ public class CloneNumChangeItem : MonoBehaviour, ICollisionHandler
         Destroy(gameObject);
     }
 
-    public void OnPlayerCloneHit()
+    public void OnPlayerCloneHit(GameObject obj)
     {
         return;
     }
