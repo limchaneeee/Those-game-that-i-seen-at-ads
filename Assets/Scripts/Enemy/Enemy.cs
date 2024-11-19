@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour, ICollisionable
+public class Enemy : MonoBehaviour
 {
     [field: SerializeField] public EnemySO Data { get; private set; }
 

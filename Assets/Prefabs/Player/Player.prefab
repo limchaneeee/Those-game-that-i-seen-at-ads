@@ -120,10 +120,11 @@ GameObject:
   - component: {fileID: 9200313425329006955}
   - component: {fileID: 1347965831599865816}
   - component: {fileID: 4493502983584805622}
+  - component: {fileID: 7361479990664842794}
   - component: {fileID: 2931034700188675358}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   playerSO: {fileID: 11400000, guid: 961ccf4b45d67e24192c69300c1896e1, type: 2}
   shooting: {fileID: 0}
+  cloneSpawner: {fileID: 0}
 --- !u!114 &1347965831599865816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +300,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPos: {fileID: 4667810501449108900}
+--- !u!114 &7361479990664842794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4550366659490311135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd003ed721b37e4f85b05fd4014cd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {fileID: 0}
+  currentCloneNumber: 0
+  maxCloneNumber: 50
+  spawnRadius: 5
+  minDistance: 1.5
+  collisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 192
+  activeClones: []
 --- !u!114 &2931034700188675358
 MonoBehaviour:
   m_ObjectHideFlags: 0

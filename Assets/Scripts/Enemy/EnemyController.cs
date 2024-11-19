@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyMovement()
     {
-        Vector3 movement = Vector3.back * Data.EnemyData.EnemySpeed * Time.deltaTime;
+        Vector3 movement =   Data.EnemyData.EnemySpeed * Time.deltaTime * Vector3.back;
         agent.Move(movement);
     }
 

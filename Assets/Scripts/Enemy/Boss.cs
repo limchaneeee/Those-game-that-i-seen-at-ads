@@ -1,23 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
-public class Boss : MonoBehaviour, ICollisionable 
+public class Boss : MonoBehaviour 
 {
     [Header("Boss Stats")]
-    [SerializeField] private BossSO bossData;  // SO µ¥ÀÌÅÍ
+    [SerializeField] private BossSO bossData;  // SO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private float currentHp;
     private bool isDead = false;
 
     [Header("Attack Pattern Settings")]
-    [SerializeField] private GameObject attackPrefab1;  // ÆÐÅÏ 1 ÇÁ¸®ÆÕ
-    [SerializeField] private GameObject attackPrefab2;  // ÆÐÅÏ 2 ÇÁ¸®ÆÕ
-    [SerializeField] private GameObject attackPrefab3;  // ÆÐÅÏ 3 ÇÁ¸®ÆÕ
+    [SerializeField] private GameObject attackPrefab1;  // ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private GameObject attackPrefab2;  // ï¿½ï¿½ï¿½ï¿½ 2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private GameObject attackPrefab3;  // ï¿½ï¿½ï¿½ï¿½ 3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    [SerializeField] private Vector3[] spawnPositionsForPattern1;  // ÆÐÅÏ 1 À§Ä¡ 
-    [SerializeField] private Vector3[] spawnPositionsForPattern3;  // ÆÐÅÏ 3 À§Ä¡
+    [SerializeField] private Vector3[] spawnPositionsForPattern1;  // ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½Ä¡ 
+    [SerializeField] private Vector3[] spawnPositionsForPattern3;  // ï¿½ï¿½ï¿½ï¿½ 3 ï¿½ï¿½Ä¡
 
     [Header("Attack Interval")]
-    [SerializeField] private float attackInterval = 5f;  // °ø°Ý µô·¹ÀÌ
+    [SerializeField] private float attackInterval = 5f;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     [Header("Player Stats")]
     [SerializeField] private PlayerSO playerData;
@@ -53,14 +53,14 @@ public class Boss : MonoBehaviour, ICollisionable
 
     private void ExecuteAttackPattern1()
     {
-        // ÆÐÅÏ 1: ÇÁ¸®ÆÕ ÇÏ³ª ¼ÒÈ¯ (Àå¾Ö¹° ¼ÒÈ¯?)
+        // ï¿½ï¿½ï¿½ï¿½ 1: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½ï¿½È¯ (ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½È¯?)
         Vector3 spawnPosition = spawnPositionsForPattern1[Random.Range(0, spawnPositionsForPattern1.Length)];
         Instantiate(attackPrefab1, spawnPosition, Quaternion.identity);
     }
 
     private void ExecuteAttackPattern2()
     {
-        // ÆÐÅÏ 2: ÇÁ¸®ÆÕ ¹ß»ç (Bullet ¹ß»ç?)
+        // ï¿½ï¿½ï¿½ï¿½ 2: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ (Bullet ï¿½ß»ï¿½?)
         Vector3 forwardDirection = transform.forward;
         Vector3 spawnPosition = transform.position + forwardDirection * 2f;
 
@@ -71,7 +71,7 @@ public class Boss : MonoBehaviour, ICollisionable
 
     private void ExecuteAttackPattern3()
     {
-        // ÆÐÅÏ 3: ÇÁ¸®ÆÕ ¿©·¯ °³ ¼ÒÈ¯ (Àûµé ¼ÒÈ¯?)
+        // ï¿½ï¿½ï¿½ï¿½ 3: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯?)
         foreach (Vector3 position in spawnPositionsForPattern3)
         {
             Instantiate(attackPrefab3, position, Quaternion.identity);
@@ -79,7 +79,7 @@ public class Boss : MonoBehaviour, ICollisionable
     }
     public void OnBulletHit()
     {
-        TakeDamage(playerData.shootDamage); // player ÀÇ shootDamage ¸¸Å­ ÇÇÇØ
+        TakeDamage(playerData.shootDamage); // player ï¿½ï¿½ shootDamage ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void TakeDamage(float damage)
@@ -93,7 +93,7 @@ public class Boss : MonoBehaviour, ICollisionable
         }
     }
 
-    // Á×¾úÀ» ¶§
+    // ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½
     private void Die()
     {
         isDead = true;
