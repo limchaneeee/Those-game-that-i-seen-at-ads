@@ -6,10 +6,11 @@ public enum ObjectPoolType
 {
     PlayerObject,
     EnemyObject,
-    ItemObject,
-    ObstacleObject,
     ProjectileObject,
-    ParticleEffectObject
+    ParticleEffectObject,
+    CloneVariationItemObject = 10,
+    UpgradeItemObject = 11,
+    ObstacleObject = 12
 }
 
 [Serializable]
