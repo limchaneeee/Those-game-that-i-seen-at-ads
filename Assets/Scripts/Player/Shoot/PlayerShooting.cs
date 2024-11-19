@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
 {
     //[SerializeField] private ObjectPoolManager bulletPool;
     [SerializeField] private GameObject shootPos;
-    //[SerializeField] private float shootCoolTime; //SO¿¡¼­ °¡Á®¿Àµµ·Ï
+    //[SerializeField] private float shootCoolTime; //SOï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private float lastTime;
 
 
@@ -25,6 +25,7 @@ public class PlayerShooting : MonoBehaviour
         GameObject bullet = ObjectPoolManager.Instance.GetPoolObject(ObjectPoolType.ProjectileObject);
         bullet.transform.position = shootPos.transform.position;
         ObjectPoolManager.Instance.transform.rotation = Quaternion.identity;
+        SoundManager.Instance.PlaySFX(SoundFXType.GunShot);
     }
 
 }
