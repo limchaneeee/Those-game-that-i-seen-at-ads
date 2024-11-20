@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CloneSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform playerPosition;
+    [SerializeField] private Transform spawnPoint;
     [SerializeField] private int maxCloneNumber;
-    [SerializeField] private float spawnRadius;
+    [SerializeField] private float spawnRange;
     [SerializeField] private float minDistance;
     [SerializeField] private LayerMask collisionLayerMask;
     public List<GameObject> activeClones = new List<GameObject>();
@@ -15,7 +15,6 @@ public class CloneSpawner : MonoBehaviour
 
     private void Start()
     {
-        playerPosition = CharacterManager.Instance.Player.gameObject.transform;
         activeClones.Capacity = maxCloneNumber;
         currentCloneNumber = 0;
     }
@@ -46,8 +45,10 @@ public class CloneSpawner : MonoBehaviour
         int attempt = 10;
         while (attempt > 0)
         {
-            Vector3 randomPosition = playerPosition.position + Random.insideUnitSphere * spawnRadius;
-            randomPosition.y = playerPosition.position.y;
+            float randomX = Random.Range(1, spawnRange);
+            float randomZ = Random.Range(1, spawnRange);
+            Vector3 randomPosition = spawnPoint.position + new Vector3(randomX, 0, randomZ);
+            randomPosition.y = spawnPoint.position.y;
 
             Collider[] colliders = Physics.OverlapSphere(randomPosition, minDistance, collisionLayerMask);
             if (colliders.Length == 0)
@@ -56,7 +57,7 @@ public class CloneSpawner : MonoBehaviour
             }
         }
         
-        return new Vector3(0, 0, 10f);
+        return new Vector3(0, 0, -spawnRange);
     }
 
     public void DecreasePlayerClone(int amount)
