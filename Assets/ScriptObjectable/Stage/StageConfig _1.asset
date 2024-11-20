@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StageConfig _1
   m_EditorClassIdentifier: 
   ObjectSpawnRate: 5
-  EnemySpawnRate: 2
+  EnemySpawnRate: 1
   BossData: {fileID: 11400000, guid: e029358a79ae3a248b5f88671bd39201, type: 2}

@@ -3480,6 +3480,7 @@ GameObject:
   - component: {fileID: 972150111}
   - component: {fileID: 972150110}
   - component: {fileID: 972150109}
+  - component: {fileID: 972150113}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -3537,6 +3538,8 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 3.6, z: 14.5}
   bossSO: {fileID: 11400000, guid: 1fc2dbdef97c8d040849ec3b9c64c57b, type: 2}
   progressScript: {fileID: 0}
+  objectSpawner: {fileID: 0}
+  enemySpawn: {fileID: 0}
 --- !u!4 &972150112
 Transform:
   m_ObjectHideFlags: 0
@@ -3553,6 +3556,34 @@ Transform:
   - {fileID: 965376557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972150113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972150107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec64f41dfd359b42b72b64304348815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroy: 0
+  bossSpawnManager: {fileID: 0}
+  objectSpawner: {fileID: 0}
+  enemySpawn: {fileID: 0}
+  stageConfigs:
+  - {fileID: 11400000, guid: b4647faa8d07bd145ad448d141888d37, type: 2}
+  - {fileID: 11400000, guid: ff88ebe5b014a3e45aeeb04cdc5b59f7, type: 2}
+  - {fileID: 11400000, guid: d37e2fa027dd8404080a6f6cb148593c, type: 2}
+  - {fileID: 11400000, guid: a78634de0c20a464ab9ad63ff7313353, type: 2}
+  - {fileID: 11400000, guid: a330657cec994a042b1126e66701c208, type: 2}
+  - {fileID: 11400000, guid: e8b6e7f159e3bf24982df84717606fa0, type: 2}
+  - {fileID: 11400000, guid: c64197c8fd0d4944e9ca5c4f79cc5222, type: 2}
+  - {fileID: 11400000, guid: babb2eeec46590f4f83a76bb8c3c8883, type: 2}
+  - {fileID: 11400000, guid: d46c468ffd2426048bef92ccc974adfb, type: 2}
+  - {fileID: 11400000, guid: 7eda7e2b085d7ae47bf4f59c6fa762db, type: 2}
+  isBossDead: 0
 --- !u!1001 &976563753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4374,6 +4405,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7361479990664842794, guid: c311c42368a2faf498a1cb2e45a67122,
+        type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 565638374}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
