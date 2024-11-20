@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour, ICollisionHandler
 {
+    public UIObjectCount uiCount;
     public ObjectPoolType poolType;
     public int count;
 
@@ -13,11 +14,14 @@ public class Obstacle : MonoBehaviour, ICollisionHandler
         int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
         poolType = ObjectPoolType.ObstacleObject;
         count = Random.Range(minCount, maxCount);
+        uiCount.UpdateCountUI(count);
     }
 
     public void OnBulletHit()
     {
         count--;
+
+        uiCount.UpdateCountUI(count);
 
         if (count <= 0)
         {
