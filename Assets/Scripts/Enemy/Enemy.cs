@@ -32,10 +32,11 @@ public class Enemy : MonoBehaviour, ICollisionHandler
         Destroy(gameObject);  
     }
 
-    public void OnBulletHit()
+    public void OnBulletHit( )
     {
         float playerAttackDamage = CharacterManager.Instance.Player.playerSO.shootDamage;
         TakeDamage(playerAttackDamage);
+      
     }
     public void OnPlayerHit() { }
 
