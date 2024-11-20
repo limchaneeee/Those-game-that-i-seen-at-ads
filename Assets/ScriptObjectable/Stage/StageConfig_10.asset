@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4416152ad964c448073846d99b9614, type: 3}
   m_Name: StageConfig_10
   m_EditorClassIdentifier: 
-  ObjectSpawnRate: 0
-  EnemySpawnRate: 0
-  BossData: {fileID: 0}
+  ObjectSpawnRate: 3
+  EnemySpawnRate: 11
+  BossData: {fileID: 11400000, guid: a0ea27846d77d964aa001bc7dd193acf, type: 2}

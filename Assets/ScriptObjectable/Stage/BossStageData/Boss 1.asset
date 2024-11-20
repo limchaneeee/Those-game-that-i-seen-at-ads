@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Boss 1
   m_EditorClassIdentifier: 
   <BossData>k__BackingField:
-    <BossHp>k__BackingField: 0
-    <BossMaxHp>k__BackingField: 0
-    <BossSpeed>k__BackingField: 0
+    <BossHp>k__BackingField: 500
+    <BossMaxHp>k__BackingField: 500
+    <BossSpeed>k__BackingField: 10
