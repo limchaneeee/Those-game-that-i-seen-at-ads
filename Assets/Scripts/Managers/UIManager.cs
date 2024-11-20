@@ -54,8 +54,6 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void Hide(string uiName)
     {
-        Debug.Log($"uiList Count After Opened: {uiList.Count}");
-
         UIBase go = uiList.Find(obj=> obj.name == uiName);
         uiList.Remove(go);
         Destroy(go.canvas.gameObject);

@@ -31,12 +31,15 @@ public class GameManager : MonoSingleton<GameManager>
             Time.timeScale = 0;
             _isGamePlaying = false;
             // todo: Pop up the pauseUI that used UIManager.
+            UIManager.Instance.Show<UI_Resume>();
         }
         else
         {
             Time.timeScale = 1;
             _isGamePlaying = true;
-            // todo: Close the pauseUI
+            // todo: Close the pauseUI in UIResume.cs
+            UIManager.Instance.Hide("UI_Resume");
+            
         }
     }
 
