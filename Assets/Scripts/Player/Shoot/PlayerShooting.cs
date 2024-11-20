@@ -7,12 +7,18 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject shootPos;
     [SerializeField] private GameObject bulletParticlePrefab;
+    [SerializeField] private float shootCoolTime;
     private float lastTime;
     public event Action<float> OnShoot;
 
+    private void Start()
+    {
+        shootCoolTime = CharacterManager.Instance.Player.playerSO.shootCoolTime;
+    }
+
     private void Update()
     {
-        if(Time.time - lastTime >= CharacterManager.Instance.Player.playerSO.shootCoolTime)
+        if(Time.time - lastTime >= shootCoolTime)
         {
             lastTime = Time.time;
             SpawnBullet();
@@ -29,5 +35,10 @@ public class PlayerShooting : MonoBehaviour
 
         OnShoot?.Invoke(CharacterManager.Instance.Player.playerSO.shootDamage);
         SoundManager.Instance.PlaySFX(SoundFXType.GunShot);
+    }
+
+    public void UpgradeShootCoolTime()
+    {
+        shootCoolTime *= CharacterManager.Instance.Player.playerSO.upgradeShootCoolTimeValue;
     }
 }

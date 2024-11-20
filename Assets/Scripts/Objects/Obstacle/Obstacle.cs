@@ -18,8 +18,8 @@ public class Obstacle : MonoBehaviour, ICollisionHandler
     private void Initialize()
     {
         poolType = ObjectPoolType.ObstacleObject;
-        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
-        int maxCount = 5 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int minCount = 5 * (1 + CharacterManager.Instance.Player.cloneSpawner.currentCloneNumber);
+        int maxCount = 10 * (1 + CharacterManager.Instance.Player.cloneSpawner.currentCloneNumber);
         count = Random.Range(minCount, maxCount);
     }
 
