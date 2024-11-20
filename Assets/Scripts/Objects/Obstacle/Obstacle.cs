@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour, ICollisionHandler
@@ -10,11 +11,16 @@ public class Obstacle : MonoBehaviour, ICollisionHandler
 
     private void OnEnable()
     {
-        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
-        int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
-        poolType = ObjectPoolType.ObstacleObject;
-        count = Random.Range(minCount, maxCount);
+        Initialize();
         uiCount.UpdateCountUI(count);
+    }
+
+    private void Initialize()
+    {
+        poolType = ObjectPoolType.ObstacleObject;
+        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int maxCount = 5 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        count = Random.Range(minCount, maxCount);
     }
 
     public void OnBulletHit()

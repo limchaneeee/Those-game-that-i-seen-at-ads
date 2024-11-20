@@ -20,14 +20,19 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
 
     private void OnEnable()
     {
+        Initialize();
+        uiCount.UpdateCountUI(count);
+        uIUpgradeInfo.UpdateInfo(type);
+    }
+
+    private void Initialize()
+    {
         int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
-        int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int maxCount = 5 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
         count = Random.Range(minCount, maxCount);
         poolType = ObjectPoolType.UpgradeItemObject;
         type = (UpgradeType)Random.Range(0, (int)UpgradeType.COUNT);
         SetUpgradeValue();
-        uiCount.UpdateCountUI(count);
-        uIUpgradeInfo.UpdateInfo(type);
     }
 
     public void SetUpgradeValue()

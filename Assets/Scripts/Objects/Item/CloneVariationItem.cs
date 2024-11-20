@@ -19,12 +19,17 @@ public class CloneVariationItem : MonoBehaviour, ICollisionHandler
 
     private void OnEnable()
     {
+        Initialize();
+        uiCount.UpdateCountUI(count, type);
+    }
+
+    private void Initialize()
+    {
         int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
-        int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int maxCount = 5 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
         count = Random.Range(minCount, maxCount) * -1;
         poolType = ObjectPoolType.CloneVariationItemObject;
         type = (CloneVariationType)Random.Range(0, (int)CloneVariationType.COUNT);
-        uiCount.UpdateCountUI(count, type);
     }
 
     public void OnBulletHit()
