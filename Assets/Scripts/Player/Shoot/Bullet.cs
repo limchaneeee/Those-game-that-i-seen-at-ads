@@ -5,7 +5,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float lifeTime = 2f;
-    
+    [SerializeField] private GameObject bulletParticlePrefab;
+
     //private ObjectPoolManager bulletPool;
 
     private void OnEnable()
@@ -36,7 +37,9 @@ public class Bullet : MonoBehaviour
     //Test
     private void OnTriggerEnter(Collider other)
     {
+        Instantiate(bulletParticlePrefab, transform.position, Quaternion.identity);
         ICollisionHandler collisionHandler = other.gameObject.GetComponent<ICollisionHandler>();
+
         if (collisionHandler != null)
         {
             collisionHandler.OnBulletHit();

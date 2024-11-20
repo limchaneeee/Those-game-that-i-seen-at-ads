@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   <EnemyData>k__BackingField:
-    <EnemyHp>k__BackingField: 5
-    <EnemyMaxHp>k__BackingField: 5
+    <EnemyHp>k__BackingField: 20
+    <EnemyMaxHp>k__BackingField: 20
     <EnemySpeed>k__BackingField: 4
     <EnemyChasingRange>k__BackingField: 5
