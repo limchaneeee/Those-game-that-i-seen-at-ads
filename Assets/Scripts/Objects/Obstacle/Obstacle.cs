@@ -1,23 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour, ICollisionHandler
 {
+    public UIObjectCount uiCount;
     public ObjectPoolType poolType;
     public int count;
 
     private void OnEnable()
     {
-        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
-        int maxCount = 20 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        Initialize();
+        uiCount.UpdateCountUI(count);
+    }
+
+    private void Initialize()
+    {
         poolType = ObjectPoolType.ObstacleObject;
+        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int maxCount = 5 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
         count = Random.Range(minCount, maxCount);
     }
 
     public void OnBulletHit()
     {
         count--;
+
+        uiCount.UpdateCountUI(count);
 
         if (count <= 0)
         {
