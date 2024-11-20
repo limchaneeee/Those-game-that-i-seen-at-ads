@@ -1,13 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class UI_Resume : UIBase
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class UI_GameOver : UIBase
 {
-    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button retryButton;
     [SerializeField] private Button mainButton;
     [SerializeField] private Button exitButton;
 
@@ -19,14 +17,15 @@ public class UI_Resume : UIBase
 
     private void InitialResumeUI()
     {
-        resumeButton.onClick.AddListener(OnResumeBtnClicked);
+        retryButton.onClick.AddListener(OnRetryBtnClicked);
         exitButton.onClick.AddListener(OnExitBtnClicked);
         mainButton.onClick.AddListener(OnMainBtnClicked);
+        Time.timeScale = 0f;
     }
 
-    private void OnResumeBtnClicked()
+    private void OnRetryBtnClicked()
     {
-        GameManager.Instance.PauseGame();
+        // TODO: 현재 스테이지 정보 그대로 게임 다시 시작하도록 하기 + UI닫기
     }
 
     private void OnExitBtnClicked()

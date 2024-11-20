@@ -39,20 +39,20 @@ public class UIObjectInfo : MonoBehaviour
 
             infoTxt.text = sb.ToString();
         }
-        else if (_cloneVariationType == CloneVariationType.DivideMultiply)
-        {
-            sb.Clear();
-            if (_variationValue < 0)
-            {
-                sb.Append('��');
-            }
-            else
-            {
-                sb.Append('��');
-            }
-            _variationValue = Mathf.Abs(_variationValue);
-            sb.Append(_variationValue);
-            infoTxt.text = sb.ToString();
-        }
+        // else if (_cloneVariationType == CloneVariationType.DivideMultiply)
+        // {
+        //     sb.Clear();
+        //     if (_variationValue < 0)
+        //     {
+        //         sb.Append('��');
+        //     }
+        //     else
+        //     {
+        //         sb.Append('��');
+        //     }
+        //     _variationValue = Mathf.Abs(_variationValue);
+        //     sb.Append(_variationValue);
+        //     infoTxt.text = sb.ToString();
+        // }
     }
 }

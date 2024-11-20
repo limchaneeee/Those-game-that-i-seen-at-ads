@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 6812176732689668034}
   - component: {fileID: 8581426132077142569}
   - component: {fileID: 6888776269025664434}
-  - component: {fileID: 2986453442642159057}
+  - component: {fileID: -7427090309677435354}
   m_Layer: 5
   m_Name: UI_StageClear
   m_TagString: Untagged
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2986453442642159057
+--- !u!114 &-7427090309677435354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -464,13 +464,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6854021681441261437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc9ac7c34e322ba40b5baaa95dd0470a, type: 3}
+  m_Script: {fileID: 11500000, guid: 56242577c4a3bc640933fe45a3f97185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  resumeButton: {fileID: 2593563510254560951}
-  mainButton: {fileID: 790128370229197015}
-  exitButton: {fileID: 2196916427883826644}
+  nextStageButton: {fileID: 0}
+  mainButton: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!1 &7809321737348907482
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume
+  m_text: NextStage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 6663203817602558144}
   - component: {fileID: 2593563510254560951}
   m_Layer: 5
-  m_Name: ResumeBtn
+  m_Name: NextStageBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
