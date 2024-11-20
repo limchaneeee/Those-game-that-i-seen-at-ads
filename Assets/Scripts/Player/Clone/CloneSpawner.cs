@@ -6,17 +6,18 @@ using UnityEngine;
 public class CloneSpawner : MonoBehaviour
 {
     [SerializeField] private Transform playerPosition;
-    [SerializeField] private int currentCloneNumber;
     [SerializeField] private int maxCloneNumber;
     [SerializeField] private float spawnRadius;
     [SerializeField] private float minDistance;
     [SerializeField] private LayerMask collisionLayerMask;
     public List<GameObject> activeClones = new List<GameObject>();
+    public int currentCloneNumber;
 
     private void Start()
     {
         playerPosition = CharacterManager.Instance.Player.gameObject.transform;
         activeClones.Capacity = maxCloneNumber;
+        currentCloneNumber = 0;
     }
 
     public void IncreasePlayerClone(int amount)
@@ -25,8 +26,7 @@ public class CloneSpawner : MonoBehaviour
         {
             amount = maxCloneNumber - currentCloneNumber;
         }
-        CharacterManager.Instance.Player.playerSO.playerCloneNumber += amount;
-        currentCloneNumber = CharacterManager.Instance.Player.playerSO.playerCloneNumber;
+        currentCloneNumber += amount;
 
         for (int i = 0; i < amount; i++)
         {
@@ -61,10 +61,9 @@ public class CloneSpawner : MonoBehaviour
 
     public void DecreasePlayerClone(int amount)
     {
-        if (activeClones.Count == 0) return;
+        if (currentCloneNumber == 0) return;
 
-        CharacterManager.Instance.Player.playerSO.playerCloneNumber = Mathf.Max(0, CharacterManager.Instance.Player.playerSO.playerCloneNumber - amount);
-        currentCloneNumber = CharacterManager.Instance.Player.playerSO.playerCloneNumber;
+        currentCloneNumber = Mathf.Max(0, currentCloneNumber - amount);
 
         if (currentCloneNumber == 0)
         {
@@ -79,7 +78,6 @@ public class CloneSpawner : MonoBehaviour
     {
         foreach (GameObject clone in activeClones)
         {
-            clone.transform.SetParent(null);
             ObjectPoolManager.Instance.GetBackObject(clone, ObjectPoolType.PlayerObject);
         }
         activeClones.Clear();
@@ -90,7 +88,6 @@ public class CloneSpawner : MonoBehaviour
         while (amount > 0 && activeClones.Count > 0)
         {
             GameObject clone = activeClones[activeClones.Count - 1];
-            clone.transform.SetParent(null);
             ObjectPoolManager.Instance.GetBackObject(clone, ObjectPoolType.PlayerObject);
             activeClones.RemoveAt(activeClones.Count - 1);
             amount--;
@@ -104,8 +101,7 @@ public class CloneSpawner : MonoBehaviour
             return;
         }
 
-        CharacterManager.Instance.Player.playerSO.playerCloneNumber = Mathf.Max(0, CharacterManager.Instance.Player.playerSO.playerCloneNumber - 1);
-        obj.transform.SetParent(null);
+        currentCloneNumber = Mathf.Max(0, currentCloneNumber - 1);
         activeClones.Remove(obj);
         ObjectPoolManager.Instance.GetBackObject(obj, ObjectPoolType.PlayerObject);
     }
