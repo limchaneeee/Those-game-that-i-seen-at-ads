@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class UI_Stage : UIBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject buttonPrefab;
+    [SerializeField] private Transform  buttonContainer;
+    [SerializeField] private int totalStages = 10;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        for (int i = 1; i <= totalStages; i++)
+        {
+            var buttonObj = Instantiate(buttonPrefab, buttonContainer);
+            var buttonScript = buttonObj.GetComponent<UI_StageButton>();
+            
+            buttonScript.SetUpButton(i);
+        }
     }
 }

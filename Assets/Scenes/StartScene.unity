@@ -923,6 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroy: 1
+  unlockedStages: 
 --- !u!4 &1985386061
 Transform:
   m_ObjectHideFlags: 0

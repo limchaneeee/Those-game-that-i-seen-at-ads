@@ -9,10 +9,14 @@ public class GameManager : MonoSingleton<GameManager>
     // **if you're going to use Awake method, it would be to use 'override'** By Chamsol.
 
     private bool _isGamePlaying = true;
+
+    private int totalStages = 10;
+    public bool[] unlockedStages;
     
     public override void Awake()
     {
         base.Awake();
+        InitStageData();
     }
 
     private void Update()
@@ -34,5 +38,16 @@ public class GameManager : MonoSingleton<GameManager>
             _isGamePlaying = true;
             // todo: Close the pauseUI
         }
+    }
+
+    private void InitStageData()
+    {
+        unlockedStages = new bool[totalStages];
+        unlockedStages[0] = true;
+    }
+
+    public bool IsStageUnlocked(int stageIndex)
+    {
+        return stageIndex >= 0 && stageIndex < unlockedStages.Length && unlockedStages[stageIndex];
     }
 }
