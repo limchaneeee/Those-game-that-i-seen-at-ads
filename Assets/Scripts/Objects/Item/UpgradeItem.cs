@@ -12,6 +12,7 @@ public enum UpgradeType
 public class UpgradeItem : MonoBehaviour, ICollisionHandler
 {
     public UIObjectCount uiCount;
+    public UIUpgradeInfo uIUpgradeInfo;
     public ObjectPoolType poolType;
     public UpgradeType type;
     public int count;
@@ -26,6 +27,7 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
         type = (UpgradeType)Random.Range(0, (int)UpgradeType.COUNT);
         SetUpgradeValue();
         uiCount.UpdateCountUI(count);
+        uIUpgradeInfo.UpdateInfo(type);
     }
 
     public void SetUpgradeValue()
