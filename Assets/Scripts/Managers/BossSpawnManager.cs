@@ -16,9 +16,13 @@ public class BossSpawnManager : MonoBehaviour
     [SerializeField] private BossSO bossSO;
 
     [Header("Progress Reference")]
-    [SerializeField] private Progress progressScript; 
+    [SerializeField] private Progress progressScript;
 
-    private bool isBossSpawned = false; 
+    [Header("Spawner References")]
+    [SerializeField] private ObjectSpawner objectSpawner;
+    [SerializeField] private EnemySpawn enemySpawn;
+
+    private bool isBossSpawned = false;
 
     private void Start()
     {
@@ -29,7 +33,7 @@ public class BossSpawnManager : MonoBehaviour
 
         if (progressScript == null)
         {
-            return; 
+            return;
         }
 
         moveSpeed = bossSO.BossData.BossSpeed;
@@ -39,9 +43,16 @@ public class BossSpawnManager : MonoBehaviour
 
     private void SpawnAndMoveBoss()
     {
-        if (!isBossSpawned) 
+        if (!isBossSpawned)
         {
             isBossSpawned = true;
+
+            if (objectSpawner != null)
+                objectSpawner.enabled = false; // ��ũ��Ʈ ��Ȱ��ȭ
+
+            if (enemySpawn != null)
+                enemySpawn.enabled = false; // ��ũ��Ʈ ��Ȱ��ȭ
+
             StartCoroutine(SpawnAndMoveBossCoroutine());
         }
     }
@@ -50,6 +61,8 @@ public class BossSpawnManager : MonoBehaviour
     {
         currentBoss = Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
         bossScript = currentBoss.GetComponent<Boss>();
+
+        bossScript.OnBossDeath += HandleBossDeath;
 
         while (currentBoss != null && Vector3.Distance(currentBoss.transform.position, targetPosition) > 0.1f)
         {
@@ -76,15 +89,30 @@ public class BossSpawnManager : MonoBehaviour
 
             if (bossAnimator != null)
             {
-                bossAnimator.SetBool("Idle",true);
+                bossAnimator.SetBool("Idle", true);
             }
 
             bossScript.StartCoroutine(bossScript.AttackPatternRoutine());
         }
     }
 
+
+
     public void ConfigureBoss(BossSO newBossSO)
     {
         bossSO = newBossSO;
+    }
+
+    // ���� ���� ó��
+    private void HandleBossDeath()
+    {
+        if (objectSpawner != null)
+            objectSpawner.enabled = true; // ��ũ��Ʈ Ȱ��ȭ
+
+        if (enemySpawn != null)
+            enemySpawn.enabled = true; // ��ũ��Ʈ Ȱ��ȭ
+
+        isBossSpawned = false;
+
     }
 }

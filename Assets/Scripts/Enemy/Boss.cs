@@ -1,8 +1,7 @@
-using System.Collections;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class Boss : MonoBehaviour, ICollisionHandler
 {
     [Header("Boss Stats")]
@@ -24,15 +23,15 @@ public class Boss : MonoBehaviour, ICollisionHandler
     [SerializeField] private Image healthBarFill;
     [SerializeField] private Text healthText;
 
+    // 보스 사망 이벤트
+    public event Action OnBossDeath;
+
     private void Start()
     {
-        // 보스의 초기 체력 설정
         currentHp = bossData.BossData.BossHp;
 
-        // 공격 패턴을 시작하는 코루틴 실행
         StartCoroutine(AttackPatternRoutine());
 
-        // UI 업데이트
         UpdateHealthBar();
         UpdateHealthText();
     }
@@ -43,7 +42,6 @@ public class Boss : MonoBehaviour, ICollisionHandler
         {
             yield return new WaitForSeconds(attackInterval);
 
-            // 패턴을 랜덤으로 선택
             int patternIndex = UnityEngine.Random.Range(0, 2);
 
             switch (patternIndex)
@@ -121,9 +119,11 @@ public class Boss : MonoBehaviour, ICollisionHandler
         }
 
         SpawnManager.Instance.isBossDead = true;
+        // 사망 이벤트 호출
+        OnBossDeath?.Invoke();
+
         Destroy(gameObject, 1f);
     }
-
 
     public void OnBulletHit()
     {
