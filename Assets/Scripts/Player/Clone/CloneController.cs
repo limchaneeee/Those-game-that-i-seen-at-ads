@@ -20,15 +20,11 @@ public class CloneCollisionController : MonoBehaviour
 
     private void OnEnable()
     {
-        directionToPlayer = (player.transform.position - transform.position).normalized;
-        directionToPlayer.y = 0;
         StartCoroutine(GetDirectionToPlayer());
     }
 
     private void FixedUpdate()
     {
-        //directionToPlayer = (player.transform.position - transform.position).normalized;
-        //directionToPlayer.y = 0;
         _rigidbody.AddForce(directionToPlayer * moveForce, ForceMode.Force);
 
         if (transform.position.y > 0.01f)
@@ -60,6 +56,11 @@ public class CloneCollisionController : MonoBehaviour
         if (collisionHandler != null)
         {
             collisionHandler.OnPlayerCloneHit(gameObject);
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            CharacterManager.Instance.Player.cloneSpawner.DeActivateClone(gameObject);
         }
     }
 }
