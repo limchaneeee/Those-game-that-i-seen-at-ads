@@ -233,7 +233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260838403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b67989b8d1073bd43bc538143f91becf, type: 3}
   m_Name: 
@@ -271,8 +271,9 @@ MonoBehaviour:
   bossPrefab: {fileID: 8667981700329850001, guid: 6f93ad55cbedb1a4492c73942a1d362e,
     type: 3}
   spawnPosition: {x: 0, y: 0.5, z: 45}
-  targetPosition: {x: 0, y: 1, z: -2}
+  targetPosition: {x: 0, y: 1, z: 2}
   bossSO: {fileID: 11400000, guid: 1fc2dbdef97c8d040849ec3b9c64c57b, type: 2}
+  progressScript: {fileID: 0}
 --- !u!4 &260838407
 Transform:
   m_ObjectHideFlags: 0
@@ -610,6 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957735977}
   - component: {fileID: 957735976}
+  - component: {fileID: 957735978}
   m_Layer: 0
   m_Name: ObjectPoolManager
   m_TagString: Untagged
@@ -643,22 +645,6 @@ MonoBehaviour:
     amount: 1
     prefab: {fileID: 8667981700329850001, guid: 6f93ad55cbedb1a4492c73942a1d362e,
       type: 3}
-  - type: 10
-    amount: 50
-    prefab: {fileID: 8013482275451663538, guid: e7cca7c78d800b345a2c79167357afb5,
-      type: 3}
-  - type: 11
-    amount: 50
-    prefab: {fileID: 5644446581987596053, guid: f05cae8f859eedc4a8e967d27cb135a2,
-      type: 3}
-  - type: 12
-    amount: 50
-    prefab: {fileID: 5767483394539264290, guid: abbde70f9ec178c4289b2f9b881abdf1,
-      type: 3}
-  - type: 0
-    amount: 50
-    prefab: {fileID: 4018023256880076457, guid: 5a02891cbe15154489b952995ef38813,
-      type: 3}
 --- !u!4 &957735977
 Transform:
   m_ObjectHideFlags: 0
@@ -674,6 +660,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &957735978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957735975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67989b8d1073bd43bc538143f91becf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 2
 --- !u!1 &1075577179
 GameObject:
   m_ObjectHideFlags: 0
