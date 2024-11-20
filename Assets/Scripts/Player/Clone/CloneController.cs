@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloneCollisionController : MonoBehaviour
+public class CloneController : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Rigidbody _rigidbody;
