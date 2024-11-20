@@ -9,5 +9,7 @@ public class PlayerSO : ScriptableObject
     public float playerMoveSpeed;
     public float shootCoolTime;
     public float shootDamage;
-    public int playerCloneNumber;
+    //public int playerCloneNumber;
+
+    public float upgradeShootCoolTimeValue;
 }

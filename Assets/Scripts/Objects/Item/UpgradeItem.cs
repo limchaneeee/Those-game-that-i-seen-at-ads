@@ -39,7 +39,7 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
     {
         if (type == UpgradeType.Damage)
         {
-            upgradeValue = Random.Range(0.5f, 5f);
+            upgradeValue = Random.Range(0.5f, 2f);
         }
         else if (type == UpgradeType.ShootCoolTime)
         {
@@ -84,7 +84,8 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
         }
         else if (type == UpgradeType.ShootCoolTime)
         {
-            CharacterManager.Instance.Player.playerSO.shootCoolTime -= upgradeValue;
+            CharacterManager.Instance.Player.playerSO.upgradeShootCoolTimeValue -= upgradeValue;
+            CharacterManager.Instance.Player.shooting.UpgradeShootCoolTime();
         }
     }
 }
