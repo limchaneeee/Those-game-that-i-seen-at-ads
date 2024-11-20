@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 485861282}
   - component: {fileID: 485861281}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   dontDestroy: 0
   listOfPool:
   - type: 2
-    amount: 100
+    amount: 200
     prefab: {fileID: 2376200896670225959, guid: 19c70a02a1589bd448d889450b8b144d,
       type: 3}
   - type: 1
@@ -430,6 +430,10 @@ MonoBehaviour:
   - type: 11
     amount: 50
     prefab: {fileID: 5644446581987596053, guid: f05cae8f859eedc4a8e967d27cb135a2,
+      type: 3}
+  - type: 0
+    amount: 30
+    prefab: {fileID: 4018023256880076457, guid: 5a02891cbe15154489b952995ef38813,
       type: 3}
 --- !u!4 &562993874
 Transform:
@@ -588,12 +592,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 0}
   currentCloneNumber: 0
-  maxCloneNumber: 0
-  spawnRadius: 0
-  minDistance: 0
+  maxCloneNumber: 30
+  spawnRadius: 5
+  minDistance: 1.5
   collisionLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   activeClones: []
 --- !u!114 &972150109
 MonoBehaviour:
@@ -626,7 +630,7 @@ MonoBehaviour:
   - {fileID: 1262473858}
   - {fileID: 2094242638}
   - {fileID: 1170153263}
-  spawnInterval: 1
+  spawnInterval: 5
 --- !u!114 &972150111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,15 +638,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972150107}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57de559d12b87e549b14a70bb2d9e8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 8667981700329850001, guid: 6f93ad55cbedb1a4492c73942a1d362e,
     type: 3}
-  spawnPosition: {x: 0, y: 0.5, z: 45}
-  targetPosition: {x: 0, y: 1, z: 2}
+  spawnPosition: {x: 0, y: 3.6, z: 95.4}
+  targetPosition: {x: 0, y: 3.6, z: 14.5}
   bossSO: {fileID: 11400000, guid: 1fc2dbdef97c8d040849ec3b9c64c57b, type: 2}
   progressScript: {fileID: 0}
 --- !u!4 &972150112
@@ -705,7 +709,7 @@ GameObject:
   - component: {fileID: 1190808412}
   - component: {fileID: 1190808411}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
