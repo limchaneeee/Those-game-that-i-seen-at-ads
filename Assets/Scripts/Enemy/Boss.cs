@@ -18,7 +18,7 @@ public class Boss : MonoBehaviour, ICollisionHandler
     [SerializeField] private Vector3[] spawnPositionsForPattern2;  // 패턴 2 위치
 
     [Header("Attack Interval")]
-    [SerializeField] private float attackInterval = 5f;  // 공격 딜레이
+    [SerializeField] private float attackInterval = 3f;  // 공격 딜레이
 
     [Header("UI Elements")]
     [SerializeField] private Image healthBarFill;
@@ -70,7 +70,9 @@ public class Boss : MonoBehaviour, ICollisionHandler
         // 패턴 2: Enemy 소환
         foreach (Vector3 position in spawnPositionsForPattern2)
         {
-            Instantiate(attackPrefab2, position, Quaternion.identity);
+            Quaternion rotation = Quaternion.Euler(0f, 180f, 0f);
+
+            Instantiate(attackPrefab2, position, rotation);
         }
     }
 
@@ -110,8 +112,17 @@ public class Boss : MonoBehaviour, ICollisionHandler
     private void Die()
     {
         isDead = true;
-        Destroy(gameObject);
+
+        Animator bossAnimator = GetComponent<Animator>();
+
+        if (bossAnimator != null)
+        {
+            bossAnimator.SetTrigger("Death");
+        }
+
+        Destroy(gameObject, 1f);
     }
+
 
     public void OnBulletHit()
     {

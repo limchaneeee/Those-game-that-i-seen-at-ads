@@ -51,19 +51,34 @@ public class BossSpawnManager : MonoBehaviour
         currentBoss = Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
         bossScript = currentBoss.GetComponent<Boss>();
 
-        while (Vector3.Distance(currentBoss.transform.position, targetPosition) > 0.1f)
+        while (currentBoss != null && Vector3.Distance(currentBoss.transform.position, targetPosition) > 0.1f)
         {
+            if (currentBoss == null)
+            {
+                yield break;
+            }
+
             currentBoss.transform.position = Vector3.MoveTowards(currentBoss.transform.position, targetPosition, moveSpeed * Time.deltaTime);
             yield return null;
         }
 
-        StartBossAttack();
+        if (currentBoss != null)
+        {
+            StartBossAttack();
+        }
     }
 
     private void StartBossAttack()
     {
         if (bossScript != null)
         {
+            Animator bossAnimator = currentBoss.GetComponent<Animator>();
+
+            if (bossAnimator != null)
+            {
+                bossAnimator.SetBool("Idle",true);
+            }
+
             bossScript.StartCoroutine(bossScript.AttackPatternRoutine());
         }
     }
