@@ -16,6 +16,7 @@ public class Progress : MonoBehaviour
     [SerializeField] private float maxGauge = 100;
 
     private event Action onProgress;
+    private event Action onGaugeFull;  // 보스 스폰 이벤트
 
     private void Awake()
     {
@@ -41,11 +42,17 @@ public class Progress : MonoBehaviour
         else
         {
             Debug.Log("스테이지 클리어");
+            onGaugeFull?.Invoke();
+            onGaugeFull = null;
         }
     }
 
     private void Update()
     {
         ProgressRate();
+    }
+    public void SetOnGaugeFullListener(Action listener)
+    {
+        onGaugeFull += listener;
     }
 }
