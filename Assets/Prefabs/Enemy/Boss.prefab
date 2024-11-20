@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 8109305729092699092}
   - component: {fileID: 4906999539544045694}
   - component: {fileID: 1439228130763233556}
+  - component: {fileID: 1227220850112725453}
   - component: {fileID: 117255351865057181}
   m_Layer: 0
   m_Name: Boss
@@ -436,7 +437,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -444,6 +445,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1227220850112725453
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667981700329850001}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!114 &117255351865057181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,17 +487,14 @@ MonoBehaviour:
   bossData: {fileID: 11400000, guid: 1fc2dbdef97c8d040849ec3b9c64c57b, type: 2}
   attackPrefab1: {fileID: 5767483394539264290, guid: abbde70f9ec178c4289b2f9b881abdf1,
     type: 3}
-  attackPrefab2: {fileID: 2376200896670225959, guid: 19c70a02a1589bd448d889450b8b144d,
-    type: 3}
-  attackPrefab3: {fileID: 7327372119087378147, guid: de71b0702ea533f44b4b562c01a25794,
+  attackPrefab2: {fileID: 7327372119087378147, guid: de71b0702ea533f44b4b562c01a25794,
     type: 3}
   spawnPositionsForPattern1:
-  - {x: 0.06, y: 0.5, z: 5.85}
-  - {x: 3.2, y: 0.5, z: 5.85}
-  - {x: -3.2, y: 0.5, z: 5.85}
-  spawnPositionsForPattern3:
-  - {x: 0.25, y: 1, z: 6.5}
+  - {x: 0, y: 0.5, z: 7.06}
+  - {x: 1.65, y: 0.5, z: 7.06}
+  - {x: 3.23, y: 0.5, z: 7.06}
+  spawnPositionsForPattern2:
+  - {x: 0.05, y: 1, z: 11}
   attackInterval: 5
-  playerData: {fileID: 11400000, guid: 961ccf4b45d67e24192c69300c1896e1, type: 2}
   healthBarFill: {fileID: 3901814972724158937}
   healthText: {fileID: 7244433223401862364}

@@ -1,8 +1,9 @@
 using System.Collections;
 using System;
 using UnityEngine;
-using UnityEngine.UI;  
-public class Boss : MonoBehaviour
+using UnityEngine.UI;
+
+public class Boss : MonoBehaviour, ICollisionHandler
 {
     [Header("Boss Stats")]
     [SerializeField] private BossSO bossData;  // SO 데이터
@@ -12,29 +13,28 @@ public class Boss : MonoBehaviour
     [Header("Attack Pattern Settings")]
     [SerializeField] private GameObject attackPrefab1;  // 패턴 1 프리팹
     [SerializeField] private GameObject attackPrefab2;  // 패턴 2 프리팹
-    [SerializeField] private GameObject attackPrefab3;  // 패턴 3 프리팹
 
-    [SerializeField] private Vector3[] spawnPositionsForPattern1;  // 패턴 1 위치 
-    [SerializeField] private Vector3[] spawnPositionsForPattern3;  // 패턴 3 위치
+    [SerializeField] private Vector3[] spawnPositionsForPattern1;  // 패턴 1 위치
+    [SerializeField] private Vector3[] spawnPositionsForPattern2;  // 패턴 2 위치
 
     [Header("Attack Interval")]
     [SerializeField] private float attackInterval = 5f;  // 공격 딜레이
 
-    [Header("Player Stats")]
-    [SerializeField] private PlayerSO playerData;
-
     [Header("UI Elements")]
-    [SerializeField] private Image healthBarFill; 
-    [SerializeField] private Text healthText;     
-
-    public event Action<float> OnDamageTaken;
+    [SerializeField] private Image healthBarFill;
+    [SerializeField] private Text healthText;
 
     private void Start()
     {
+        // 보스의 초기 체력 설정
         currentHp = bossData.BossData.BossHp;
+
+        // 공격 패턴을 시작하는 코루틴 실행
         StartCoroutine(AttackPatternRoutine());
-        UpdateHealthBar();  
-        UpdateHealthText(); 
+
+        // UI 업데이트
+        UpdateHealthBar();
+        UpdateHealthText();
     }
 
     public IEnumerator AttackPatternRoutine()
@@ -43,7 +43,8 @@ public class Boss : MonoBehaviour
         {
             yield return new WaitForSeconds(attackInterval);
 
-            int patternIndex = UnityEngine.Random.Range(0, 3); // 명시적
+            // 패턴을 랜덤으로 선택
+            int patternIndex = UnityEngine.Random.Range(0, 2);
 
             switch (patternIndex)
             {
@@ -52,9 +53,6 @@ public class Boss : MonoBehaviour
                     break;
                 case 1:
                     ExecuteAttackPattern2();
-                    break;
-                case 2:
-                    ExecuteAttackPattern3();
                     break;
             }
         }
@@ -69,27 +67,11 @@ public class Boss : MonoBehaviour
 
     private void ExecuteAttackPattern2()
     {
-        // 패턴 2: 프리팹 발사 (Bullet 발사?)
-        Vector3 forwardDirection = transform.forward;
-        Vector3 spawnPosition = transform.position + forwardDirection * 2f;
-
-        spawnPosition.y = transform.position.y - 2f;
-
-        Instantiate(attackPrefab2, spawnPosition, Quaternion.identity);
-    }
-
-    private void ExecuteAttackPattern3()
-    {
-        // 패턴 3: Enemy 소환
-        foreach (Vector3 position in spawnPositionsForPattern3)
+        // 패턴 2: Enemy 소환
+        foreach (Vector3 position in spawnPositionsForPattern2)
         {
-            Instantiate(attackPrefab3, position, Quaternion.identity);
+            Instantiate(attackPrefab2, position, Quaternion.identity);
         }
-    }
-
-    public void OnBulletHit()
-    {
-        OnDamageTaken?.Invoke(playerData.shootDamage);
     }
 
     public void TakeDamage(float damage)
@@ -97,13 +79,14 @@ public class Boss : MonoBehaviour
         if (isDead) return;
 
         currentHp -= damage;
+
         if (currentHp <= 0)
         {
             Die();
         }
 
-        UpdateHealthBar();  
-        UpdateHealthText(); 
+        UpdateHealthBar();
+        UpdateHealthText();
     }
 
     private void UpdateHealthBar()
@@ -111,7 +94,7 @@ public class Boss : MonoBehaviour
         if (healthBarFill != null)
         {
             float healthPercentage = currentHp / bossData.BossData.BossHp;
-            healthBarFill.fillAmount = Mathf.Clamp01(healthPercentage);  
+            healthBarFill.fillAmount = Mathf.Clamp01(healthPercentage);
         }
     }
 
@@ -123,10 +106,23 @@ public class Boss : MonoBehaviour
         }
     }
 
-    // 죽었을 때
+    // 보스 죽음
     private void Die()
     {
         isDead = true;
         Destroy(gameObject);
     }
+
+    public void OnBulletHit()
+    {
+        TakeDamage(CharacterManager.Instance.Player.playerSO.shootDamage);
+    }
+
+    // ICollisionHandler 용
+
+    public void OnPlayerHit() { }
+
+    public void OnPlayerCloneHit(GameObject obj) { }
+
+    public void OnBottomWallHit() { }
 }
