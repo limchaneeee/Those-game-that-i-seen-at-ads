@@ -6,47 +6,28 @@ public class CloneController : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float moveForce;
-    [SerializeField] private float maxSpeed;
-    WaitForSeconds wait = new WaitForSeconds(1f);
+    [SerializeField] private float moveSpeed;
     private Vector3 directionToPlayer;
     private Vector3 tempPosition;
 
     private void Awake()
     {
         player = CharacterManager.Instance.Player.gameObject;
+        moveSpeed = CharacterManager.Instance.Player.playerSO.playerMoveSpeed;
         _rigidbody = GetComponent<Rigidbody>();
-    }
-
-    private void OnEnable()
-    {
-        StartCoroutine(GetDirectionToPlayer());
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.AddForce(directionToPlayer * moveForce, ForceMode.Force);
+        directionToPlayer = (player.transform.position - transform.position).normalized;
+
+        _rigidbody.velocity = directionToPlayer * moveSpeed;
 
         if (transform.position.y > 0.01f)
         {
             tempPosition = transform.position;
             tempPosition.y = 0f;
             transform.position = tempPosition;
-        }
-
-        if (_rigidbody.velocity.magnitude > maxSpeed)
-        {
-            _rigidbody.velocity = _rigidbody.velocity.normalized * maxSpeed;
-        }
-    }
-
-    IEnumerator GetDirectionToPlayer()
-    {
-        while (true)
-        {
-            directionToPlayer = (player.transform.position - transform.position).normalized;
-            directionToPlayer.y = 0;
-            yield return wait;
         }
     }
 
