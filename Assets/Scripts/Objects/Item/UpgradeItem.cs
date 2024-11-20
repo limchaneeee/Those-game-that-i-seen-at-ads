@@ -11,8 +11,8 @@ public enum UpgradeType
 
 public class UpgradeItem : MonoBehaviour, ICollisionHandler
 {
+    public UIObjectInfo uiInfo;
     public UIObjectCount uiCount;
-    public UIUpgradeInfo uIUpgradeInfo;
     public ObjectPoolType poolType;
     public UpgradeType type;
     public int count;
@@ -22,13 +22,13 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
     {
         Initialize();
         uiCount.UpdateCountUI(count);
-        uIUpgradeInfo.UpdateInfo(type);
+        uiInfo.UpdateInfo(type);
     }
 
     private void Initialize()
     {
-        int minCount = 1 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
-        int maxCount = 5 * (1 + CharacterManager.Instance.Player.playerSO.playerCloneNumber);
+        int minCount = 5 * (1 + CharacterManager.Instance.Player.cloneSpawner.currentCloneNumber);
+        int maxCount = 10 * (1 + CharacterManager.Instance.Player.cloneSpawner.currentCloneNumber);
         count = Random.Range(minCount, maxCount);
         poolType = ObjectPoolType.UpgradeItemObject;
         type = (UpgradeType)Random.Range(0, (int)UpgradeType.COUNT);
@@ -39,7 +39,7 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
     {
         if (type == UpgradeType.Damage)
         {
-            upgradeValue = Random.Range(0.5f, 5f);
+            upgradeValue = Random.Range(0.5f, 2f);
         }
         else if (type == UpgradeType.ShootCoolTime)
         {
@@ -84,7 +84,8 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
         }
         else if (type == UpgradeType.ShootCoolTime)
         {
-            CharacterManager.Instance.Player.playerSO.shootCoolTime -= upgradeValue;
+            CharacterManager.Instance.Player.playerSO.upgradeShootCoolTimeValue -= upgradeValue;
+            CharacterManager.Instance.Player.shooting.UpgradeShootCoolTime();
         }
     }
 }
