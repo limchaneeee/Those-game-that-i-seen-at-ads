@@ -37,13 +37,22 @@ public class Bullet : MonoBehaviour
     //Test
     private void OnTriggerEnter(Collider other)
     {
-        Instantiate(bulletParticlePrefab, transform.position, Quaternion.identity);
-        ICollisionHandler collisionHandler = other.gameObject.GetComponent<ICollisionHandler>();
-
-        if (collisionHandler != null)
+        if (other.CompareTag("Enemy") || other.CompareTag("Boss") || other.CompareTag("Obstacle")) 
         {
-            collisionHandler.OnBulletHit();
+            GameObject particle = ObjectPoolManager.Instance.GetPoolObject(ObjectPoolType.ParticleEffectObject);
+            particle.transform.position = transform.position;
+            particle.transform.rotation = Quaternion.identity;
+
+            ICollisionHandler collisionHandler = other.gameObject.GetComponent<ICollisionHandler>();
+
+            if (collisionHandler != null)
+            {
+                collisionHandler.OnBulletHit();
+               
+            }
             Deactivate();
         }
+
+       
     }
 }

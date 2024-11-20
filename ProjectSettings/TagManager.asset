@@ -6,6 +6,9 @@ TagManager:
   tags:
   - BottomWall
   - Bullet
+  - Enemy
+  - Boss
+  - Obstacle
   layers:
   - Default
   - TransparentFX

@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour, ICollisionHandler
             Die();  
         }
     }
+
     private void Die()
     {
         Destroy(gameObject);  
@@ -42,5 +43,8 @@ public class Enemy : MonoBehaviour, ICollisionHandler
 
     public void OnPlayerCloneHit(GameObject obj) { }
 
-    public void OnBottomWallHit() { }
+    public void OnBottomWallHit() 
+    {
+        Die();
+    }
 }

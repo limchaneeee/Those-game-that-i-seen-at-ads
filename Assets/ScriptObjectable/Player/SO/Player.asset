@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   playerMoveSpeed: 10
-  shootCoolTime: 0.2
+  shootCoolTime: 0.25
   shootDamage: 5
   playerCloneNumber: 0
