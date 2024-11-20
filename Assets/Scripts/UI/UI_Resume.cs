@@ -16,10 +16,6 @@ public class UI_Resume : UIBase
         base.Awake();
         InitialResumeUI();
     }
-    private void Start()
-    {
-        PopUpAnimaition();
-    }
 
     private void InitialResumeUI()
     {
