@@ -75,4 +75,12 @@ public class ObjectSpawner : MonoBehaviour
             yield return spawnWait;
         }
     }
+
+    public void SetSpawnRate(float interval)
+    {
+        StopAllCoroutines();
+        spawnInterval = interval;
+        spawnWait = new WaitForSeconds(interval);
+        StartCoroutine(RepeatSpawn());
+    }
 }

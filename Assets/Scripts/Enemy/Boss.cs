@@ -120,6 +120,7 @@ public class Boss : MonoBehaviour, ICollisionHandler
             bossAnimator.SetTrigger("Death");
         }
 
+        SpawnManager.Instance.isBossDead = true;
         Destroy(gameObject, 1f);
     }
 

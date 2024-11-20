@@ -32,20 +32,20 @@ public class UIObjectCount : MonoBehaviour
             }
             sb.Append(count);
         }
-        // else if (_cloneVariationType == CloneVariationType.DivideMultiply)
-        // {
-        //     sb.Clear();
-        //     if (count >= 0)
-        //     {
-        //         sb.Append('��');
-        //     }
-        //     else
-        //     {
-        //         sb.Append('��');
-        //     }
-        //     count = Mathf.Abs(count);
-        //     sb.Append(count);
-        // }
+        else if (_cloneVariationType == CloneVariationType.DivideMultiply)
+        {
+            sb.Clear();
+            if (count >= 0)
+            {
+                sb.Append('��');
+            }
+            else
+            {
+                sb.Append('��');
+            }
+            count = Mathf.Abs(count);
+            sb.Append(count);
+        }
 
         UpdateUI();
     }

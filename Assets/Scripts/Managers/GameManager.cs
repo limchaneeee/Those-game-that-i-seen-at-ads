@@ -53,4 +53,12 @@ public class GameManager : MonoSingleton<GameManager>
     {
         return stageIndex >= 0 && stageIndex < unlockedStages.Length && unlockedStages[stageIndex];
     }
+
+    public void UnlcokNextStage(int stageIndex)
+    {
+        if (stageIndex >= 0 && stageIndex < unlockedStages.Length)
+        {
+            unlockedStages[stageIndex] = true;
+        }
+    }
 }

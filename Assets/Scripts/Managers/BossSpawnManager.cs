@@ -24,7 +24,7 @@ public class BossSpawnManager : MonoBehaviour
     {
         if (progressScript == null)
         {
-            progressScript = FindObjectOfType<Progress>(); // Progress °´Ã¼
+            progressScript = FindObjectOfType<Progress>(); // Progress ï¿½ï¿½Ã¼
         }
 
         if (progressScript == null)
@@ -81,5 +81,10 @@ public class BossSpawnManager : MonoBehaviour
 
             bossScript.StartCoroutine(bossScript.AttackPatternRoutine());
         }
+    }
+
+    public void ConfigureBoss(BossSO newBossSO)
+    {
+        bossSO = newBossSO;
     }
 }

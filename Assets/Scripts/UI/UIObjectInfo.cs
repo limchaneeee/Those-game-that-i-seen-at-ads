@@ -44,11 +44,11 @@ public class UIObjectInfo : MonoBehaviour
             sb.Clear();
             if (_variationValue < 0)
             {
-                sb.Append('¡À');
+                sb.Append('ï¿½ï¿½');
             }
             else
             {
-                sb.Append('¡¿');
+                sb.Append('ï¿½ï¿½');
             }
             _variationValue = Mathf.Abs(_variationValue);
             sb.Append(_variationValue);
