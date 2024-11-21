@@ -5349,6 +5349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513064515}
+  - component: {fileID: 1513064516}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -5376,6 +5377,20 @@ Transform:
   - {fileID: 1472595263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513064516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513064514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ba64947f7928142ab424991341a55f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  map2: {fileID: 68324608967656114, guid: be40d9c100a72e04ea03ba917e0f747c, type: 3}
 --- !u!1001 &1513770938
 PrefabInstance:
   m_ObjectHideFlags: 0
