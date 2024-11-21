@@ -13,9 +13,10 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     [Header("Stage configurations")]
     public StageConfig[] stageConfigs;
 
-    private int currentStageIndex = 0;
-
+    [HideInInspector]
+    public int currentStageIndex = 0;
     private bool isStageActive = false;
+    
     [HideInInspector]
     public bool isBossDead = false;
     
@@ -40,7 +41,7 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         {
             currentStageIndex = stageIndex;
             isStageActive = true;
-            
+            Time.timeScale = 1f;
             ApllyStageConfig(stageConfigs[stageIndex]);
         }
     }
@@ -55,7 +56,9 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     public void EndStage()
     {
         isStageActive = false;
-        GameManager.Instance.UnlcokNextStage(currentStageIndex+1);
+        currentStageIndex++;
+        GameManager.Instance.UnlcokNextStage(currentStageIndex);
+        UIManager.Instance.Show<UI_StageClear>();
     }
 
     private void Update()

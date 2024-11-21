@@ -26,16 +26,18 @@ public class UI_GameOver : UIBase
     private void OnRetryBtnClicked()
     {
         // TODO: 현재 스테이지 정보 그대로 게임 다시 시작하도록 하기 + UI닫기
+        SceneManager.LoadScene("InGame"); 
+        Hide();
     }
 
     private void OnExitBtnClicked()
     {
-        // TODO: UI닫기
         Application.Quit();
     }
 
     private void OnMainBtnClicked()
     {
         SceneManager.LoadScene("StartScene");
+        Hide();
     }
 }

@@ -468,9 +468,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  nextStageButton: {fileID: 0}
-  mainButton: {fileID: 0}
-  exitButton: {fileID: 0}
+  nextStageButton: {fileID: 2593563510254560951}
+  mainButton: {fileID: 790128370229197015}
+  exitButton: {fileID: 2196916427883826644}
 --- !u!1 &7809321737348907482
 GameObject:
   m_ObjectHideFlags: 0
