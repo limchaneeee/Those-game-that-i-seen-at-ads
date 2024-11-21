@@ -17,14 +17,12 @@ public class EnemyController : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").transform;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
         EnemyMovement();
         EnemyChasing();
     }
-
+   
     private void EnemyMovement()
     {
         Vector3 movement =   Data.EnemyData.EnemySpeed * Time.deltaTime * Vector3.back;

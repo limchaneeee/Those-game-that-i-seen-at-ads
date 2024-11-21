@@ -37,11 +37,11 @@ public class UIObjectCount : MonoBehaviour
             sb.Clear();
             if (count >= 0)
             {
-                sb.Append('��');
+                sb.Append('%');
             }
             else
             {
-                sb.Append('��');
+                sb.Append('$');
             }
             count = Mathf.Abs(count);
             sb.Append(count);
