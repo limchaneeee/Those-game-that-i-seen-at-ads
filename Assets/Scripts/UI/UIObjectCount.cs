@@ -46,8 +46,8 @@ public class UIObjectCount : MonoBehaviour
         //     count = Mathf.Abs(count);
         //     sb.Append(count);
         // }
-
-        UpdateUI();
+        //
+        // UpdateUI();
     }
 
     public void UpdateUI()

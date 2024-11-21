@@ -13,31 +13,26 @@ public class GameManager : MonoSingleton<GameManager>
     private int totalStages = 10;
     public bool[] unlockedStages;
     
+    public int SelectedStageIndex { get;  set; }
+    
     public override void Awake()
     {
         base.Awake();
         InitStageData();
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void PauseGame()
     {
-        if (_isGamePlaying)
+        if (_isGamePlaying && UIManager.Instance.uiList.Count == 0)
         {
             Time.timeScale = 0;
             _isGamePlaying = false;
-            // todo: Pop up the pauseUI that used UIManager.
             UIManager.Instance.Show<UI_Resume>();
         }
-        else
+        else if(!_isGamePlaying && UIManager.Instance.uiList.Count == 1)
         {
             Time.timeScale = 1;
             _isGamePlaying = true;
-            // todo: Close the pauseUI in UIResume.cs
             UIManager.Instance.Hide("UI_Resume");
             
         }
@@ -53,4 +48,18 @@ public class GameManager : MonoSingleton<GameManager>
     {
         return stageIndex >= 0 && stageIndex < unlockedStages.Length && unlockedStages[stageIndex];
     }
+
+    public void UnlcokNextStage(int stageIndex)
+    {
+        if (stageIndex >= 0 && stageIndex < unlockedStages.Length)
+        {
+            unlockedStages[stageIndex] = true;
+        }
+    }
+
+    public void SetSelectedStageIndex(int stageIndex)
+    {
+        SelectedStageIndex = stageIndex;
+    }
+    
 }

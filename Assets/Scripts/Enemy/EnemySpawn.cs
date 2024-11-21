@@ -30,4 +30,11 @@ public class EnemySpawn : MonoBehaviour
         enemy.transform.position = spawnPosition;
 
     }
+
+    public void SetSpawnRate(float interval)
+    {
+        StopAllCoroutines();
+        spawnTime = interval;
+        StartCoroutine(SpawnEnemies());
+    }
 }
