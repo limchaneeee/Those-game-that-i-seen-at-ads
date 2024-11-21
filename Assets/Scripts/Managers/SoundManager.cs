@@ -83,7 +83,6 @@ public class SoundManager : MonoSingleton<SoundManager>
             { SoundFXType.GunShot , sfxClips[2]},
             { SoundFXType.Die , sfxClips[3]}
         };
-        Debug.Log("SoundFX Dictionary initialized successfully.");
     }
 
     public void PlayBGM(BgmType bgmType)

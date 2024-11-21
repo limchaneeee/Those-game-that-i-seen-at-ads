@@ -3538,8 +3538,8 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 3.6, z: 14.5}
   bossSO: {fileID: 11400000, guid: 1fc2dbdef97c8d040849ec3b9c64c57b, type: 2}
   progressScript: {fileID: 0}
-  objectSpawner: {fileID: 0}
-  enemySpawn: {fileID: 0}
+  objectSpawner: {fileID: 972150110}
+  enemySpawn: {fileID: 972150109}
 --- !u!4 &972150112
 Transform:
   m_ObjectHideFlags: 0
@@ -3583,6 +3583,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: babb2eeec46590f4f83a76bb8c3c8883, type: 2}
   - {fileID: 11400000, guid: d46c468ffd2426048bef92ccc974adfb, type: 2}
   - {fileID: 11400000, guid: 7eda7e2b085d7ae47bf4f59c6fa762db, type: 2}
+  currentStageIndex: 0
   isBossDead: 0
 --- !u!1001 &976563753
 PrefabInstance:
