@@ -61,6 +61,12 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         UIManager.Instance.Show<UI_StageClear>();
     }
 
+    public void SetSpawninActive(bool isActive)
+    {
+        objectSpawner.enabled = isActive;
+        enemySpawn.enabled = isActive;
+    }
+
     private void Update()
     {
         if (isStageActive && isBossDead)
