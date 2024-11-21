@@ -36,6 +36,7 @@ public class UIManager : MonoSingleton<UIManager>
         var canvasScaler = newCavasObj.AddComponent<CanvasScaler>();
         canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         canvasScaler.referenceResolution = new Vector2(ScreenWidth, ScreenHeight);
+        canvasScaler.matchWidthOrHeight = 1;
 
         newCavasObj.AddComponent<GraphicRaycaster>();
         

@@ -37,6 +37,7 @@ public class UI_Resume : UIBase
     private void OnMainBtnClicked()
     {
         SceneManager.LoadScene("StartScene");
+        GameManager.Instance._isGamePlaying = true;
         Hide();
     }
 }

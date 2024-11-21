@@ -5,10 +5,8 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    // inherited MonoSingleton. Don't static.
-    // **if you're going to use Awake method, it would be to use 'override'** By Chamsol.
-
-    private bool _isGamePlaying = true;
+    [HideInInspector]
+    public bool _isGamePlaying = true;
 
     private int totalStages = 10;
     public bool[] unlockedStages;
