@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class PlayerCondition : MonoBehaviour
 {
-    [SerializeField] private LayerMask dieLayer; //�ı������� ������Ʈ, ����, ����
-    private void OnCollisionEnter(Collision collision)
-    {
-        // game over time
-        if(((1 << collision.gameObject.layer) & dieLayer) != 0)
-        {
-            CharacterManager.Instance.Player.playerSO.InitPlayerStat();
-            Destroy(gameObject); //���߿��� �ı�����, �÷��̾� Ǯ�� �־��� ���ٷ� ���濹��
-            UIManager.Instance.Show<UI_GameOver>();
-        }
-
-    }
+    [SerializeField] private LayerMask dieLayer;
     
-    //Test
+
     private void OnTriggerEnter(Collider other)
     {
         ICollisionHandler collisionHandler = other.gameObject.GetComponent<ICollisionHandler>();
         if (collisionHandler != null)
         {
             collisionHandler.OnPlayerHit();
+        }
+
+         if(((1 << other.gameObject.layer) & dieLayer) != 0)
+        {
+            CharacterManager.Instance.Player.playerSO.InitPlayerStat();
+            Destroy(gameObject);
+            UIManager.Instance.Show<UI_GameOver>();
         }
     }
 }
