@@ -17,11 +17,7 @@ public class BossSpawnManager : MonoBehaviour
 
     [Header("Progress Reference")]
     [SerializeField] private Progress progressScript;
-
-    [Header("Spawner References")]
-    [SerializeField] private ObjectSpawner objectSpawner;
-    [SerializeField] private EnemySpawn enemySpawn;
-
+    
     private bool isBossSpawned = false;
 
     private void Start()
@@ -47,12 +43,8 @@ public class BossSpawnManager : MonoBehaviour
         {
             isBossSpawned = true;
 
-            if (objectSpawner != null)
-                objectSpawner.enabled = false; // ��ũ��Ʈ ��Ȱ��ȭ
-
-            if (enemySpawn != null)
-                enemySpawn.enabled = false; // ��ũ��Ʈ ��Ȱ��ȭ
-
+            SpawnManager.Instance.SetSpawninActive(false);
+            
             StartCoroutine(SpawnAndMoveBossCoroutine());
         }
     }
@@ -106,13 +98,8 @@ public class BossSpawnManager : MonoBehaviour
     // ���� ���� ó��
     private void HandleBossDeath()
     {
-        if (objectSpawner != null)
-            objectSpawner.enabled = true; // ��ũ��Ʈ Ȱ��ȭ
-
-        if (enemySpawn != null)
-            enemySpawn.enabled = true; // ��ũ��Ʈ Ȱ��ȭ
-
+        SpawnManager.Instance.SetSpawninActive(true);
+        
         isBossSpawned = false;
-
     }
 }
