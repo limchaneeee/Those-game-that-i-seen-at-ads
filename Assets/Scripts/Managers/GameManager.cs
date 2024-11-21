@@ -13,7 +13,7 @@ public class GameManager : MonoSingleton<GameManager>
     private int totalStages = 10;
     public bool[] unlockedStages;
     
-    public int SelectedStageIndex { get; private set; }
+    public int SelectedStageIndex { get;  set; }
     
     public override void Awake()
     {

@@ -56,7 +56,8 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     public void EndStage()
     {
         isStageActive = false;
-        GameManager.Instance.UnlcokNextStage(currentStageIndex+1);
+        currentStageIndex++;
+        GameManager.Instance.UnlcokNextStage(currentStageIndex);
         UIManager.Instance.Show<UI_StageClear>();
     }
 
