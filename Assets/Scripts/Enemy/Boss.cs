@@ -123,6 +123,7 @@ public class Boss : MonoBehaviour, ICollisionHandler
         OnBossDeath?.Invoke();
 
         Destroy(gameObject, 1f);
+        UIManager.Instance.Show<UI_StageClear>();
     }
 
     public void OnBulletHit()

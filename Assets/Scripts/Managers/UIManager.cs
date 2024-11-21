@@ -11,7 +11,8 @@ public class UIManager : MonoSingleton<UIManager>
     public static float ScreenWidth = 760;
     public static float ScreenHeight = 1280;
     
-    private List<UIBase> uiList = new List<UIBase>();
+    [HideInInspector]
+    public List<UIBase> uiList = new List<UIBase>();
     
 
     public T Show<T>() where T : UIBase

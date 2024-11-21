@@ -31,12 +31,12 @@ public class UI_Resume : UIBase
 
     private void OnExitBtnClicked()
     {
-        // TODO: UI닫기
         Application.Quit();
     }
 
     private void OnMainBtnClicked()
     {
         SceneManager.LoadScene("StartScene");
+        Hide();
     }
 }

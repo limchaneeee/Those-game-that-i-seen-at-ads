@@ -10,6 +10,7 @@ public class PlayerCondition : MonoBehaviour
         if(((1 << collision.gameObject.layer) & dieLayer) != 0)
         {
             Destroy(gameObject); //���߿��� �ı�����, �÷��̾� Ǯ�� �־��� ���ٷ� ���濹��
+            UIManager.Instance.Show<UI_GameOver>();
         }
 
     }
