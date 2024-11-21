@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum CloneVariationType
@@ -13,7 +11,6 @@ public enum CloneVariationType
 public class CloneVariationItem : MonoBehaviour, ICollisionHandler
 {
     public UIObjectInfo uiInfo;
-    //public UIObjectCount uiCount;
     public ObjectPoolType poolType;
     public CloneVariationType type;
     public int count;
@@ -23,7 +20,6 @@ public class CloneVariationItem : MonoBehaviour, ICollisionHandler
     {
         Initialize();
         uiInfo.UpdateInfo(type, variationValue);
-        //uiCount.UpdateCountUI(count, type);
     }
 
     private void Initialize()
@@ -57,7 +53,6 @@ public class CloneVariationItem : MonoBehaviour, ICollisionHandler
 
         variationValue = CalculateVariationValue();
 
-        //uiCount.UpdateCountUI(count, type);
         uiInfo.UpdateInfo(type, variationValue);
     }
 

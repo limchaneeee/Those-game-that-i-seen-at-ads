@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class Progress : MonoBehaviour
@@ -16,11 +13,10 @@ public class Progress : MonoBehaviour
     [SerializeField] private float maxGauge = 100;
 
     private event Action onProgress;
-    private event Action onGaugeFull;  // ���� ���� �̺�Ʈ
+    private event Action onGaugeFull;
 
     private void Awake()
     {
-        //progressBar = GetComponentInChildren<Image>();
         meterTxt = GetComponentInChildren<TextMeshProUGUI>();
         curGauge = minGauge;
         onProgress += Getpercentage;

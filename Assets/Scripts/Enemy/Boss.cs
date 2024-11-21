@@ -131,8 +131,6 @@ public class Boss : MonoBehaviour, ICollisionHandler
         TakeDamage(CharacterManager.Instance.Player.playerSO.shootDamage);
     }
 
-    // ICollisionHandler 용
-
     public void OnPlayerHit() { }
 
     public void OnPlayerCloneHit(GameObject obj) { }

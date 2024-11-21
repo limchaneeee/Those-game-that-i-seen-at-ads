@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -25,7 +24,6 @@ public class UI_GameOver : UIBase
 
     private void OnRetryBtnClicked()
     {
-        // TODO: 현재 스테이지 정보 그대로 게임 다시 시작하도록 하기 + UI닫기
         SceneManager.LoadScene("InGame"); 
         Hide();
     }
