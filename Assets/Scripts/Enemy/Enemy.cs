@@ -45,7 +45,10 @@ public class Enemy : MonoBehaviour, ICollisionHandler
     }
     public void OnPlayerHit() { }
 
-    public void OnPlayerCloneHit(GameObject obj) { }
+    public void OnPlayerCloneHit(GameObject obj)
+    { 
+        Destroy(gameObject);
+    }
 
     public void OnBottomWallHit() 
     {

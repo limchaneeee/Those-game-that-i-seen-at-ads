@@ -45,7 +45,7 @@ public class CloneSpawner : MonoBehaviour
         int attempt = 10;
         while (attempt > 0)
         {
-            float randomX = Random.Range(1, spawnRange);
+            float randomX = Random.Range(-spawnRange, spawnRange);
             float randomZ = Random.Range(1, spawnRange);
             Vector3 randomPosition = spawnPoint.position + new Vector3(randomX, 0, randomZ);
             randomPosition.y = spawnPoint.position.y;

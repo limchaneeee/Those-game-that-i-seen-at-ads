@@ -10,7 +10,7 @@ public class CloneController : MonoBehaviour
     private Vector3 directionToPlayer;
     private Vector3 tempPosition;
 
-    private void Awake()
+    private void OnEnable()
     {
         player = CharacterManager.Instance.Player.gameObject;
         moveSpeed = CharacterManager.Instance.Player.playerSO.playerMoveSpeed;
