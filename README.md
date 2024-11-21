@@ -50,6 +50,8 @@ https://assetstore.unity.com/packages/3d/characters/humanoids/toon-soldiers-ww2-
 https://assetstore.unity.com/packages/3d/characters/toony-tiny-people-demo-113188
 - 환경
 https://assetstore.unity.com/packages/3d/environments/urban/lowpoly-modern-city-decorations-set-66070
+- 파티클
+https://assetstore.unity.com/packages/vfx/particles/hit-impact-effects-free-218385
 
 ### 기술
 - Object Pooling을 이용한 다양한 오브젝트 개체 수 관리(총알, 적, 장애물)
