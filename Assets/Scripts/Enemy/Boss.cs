@@ -138,4 +138,6 @@ public class Boss : MonoBehaviour, ICollisionHandler
     public void OnPlayerCloneHit(GameObject obj) { }
 
     public void OnBottomWallHit() { }
+
+    public void OnChasingWallHit() { }
 }

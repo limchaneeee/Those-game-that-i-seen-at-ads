@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveSpeed: 10
   shootCoolTime: 0.4
-  shootDamage: 10
-  upgradeShootCoolTimeValue: 0.9569415
+  shootDamage: 7.5559564
+  upgradeShootCoolTimeValue: 0.030478802

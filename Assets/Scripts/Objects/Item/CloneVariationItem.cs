@@ -103,6 +103,8 @@ public class CloneVariationItem : MonoBehaviour, ICollisionHandler
         ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
     }
 
+    public void OnChasingWallHit() { }
+
     public int CalculateVariationValue()
     {
         int value = 0;

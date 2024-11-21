@@ -49,4 +49,9 @@ public class Obstacle : MonoBehaviour, ICollisionHandler
     {
         ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
     }
+
+    public void OnChasingWallHit()
+    {
+
+    }
 }

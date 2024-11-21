@@ -8,4 +8,5 @@ public interface ICollisionHandler
     public void OnPlayerHit();
     public void OnPlayerCloneHit(GameObject obj);
     public void OnBottomWallHit();
+    public void OnChasingWallHit();
 }

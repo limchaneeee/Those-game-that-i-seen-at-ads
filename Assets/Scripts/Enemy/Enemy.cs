@@ -9,11 +9,15 @@ public class Enemy : MonoBehaviour, ICollisionHandler
     [field: SerializeField] public EnemySO Data { get; private set; }
     [SerializeField] private HPBar hpBar;
 
-    public float health;
+    public NavMeshAgent agent;
+    public Transform player;
 
+    public float health;
 
     private void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = Data.EnemyData.EnemySpeed;
         health = Data.EnemyData.EnemyHp;
     }
 
@@ -46,5 +50,13 @@ public class Enemy : MonoBehaviour, ICollisionHandler
     public void OnBottomWallHit() 
     {
         Die();
+    }
+
+    public void OnChasingWallHit() 
+    {
+        player = GameObject.FindWithTag("Player").transform;
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        agent.SetDestination(player.position);
     }
 }

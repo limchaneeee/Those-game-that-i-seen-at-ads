@@ -75,6 +75,7 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
     {
         ObjectPoolManager.Instance.GetBackObject(gameObject, poolType);
     }
+    public void OnChasingWallHit() { }
 
     private void UpgradePlayer()
     {
