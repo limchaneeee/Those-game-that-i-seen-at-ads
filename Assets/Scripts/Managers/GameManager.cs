@@ -13,15 +13,12 @@ public class GameManager : MonoSingleton<GameManager>
     private int totalStages = 10;
     public bool[] unlockedStages;
     
+    public int SelectedStageIndex { get; private set; }
+    
     public override void Awake()
     {
         base.Awake();
         InitStageData();
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void PauseGame()
@@ -60,5 +57,10 @@ public class GameManager : MonoSingleton<GameManager>
         {
             unlockedStages[stageIndex] = true;
         }
+    }
+
+    public void SetSelectedStageIndex(int stageIndex)
+    {
+        SelectedStageIndex = stageIndex;
     }
 }

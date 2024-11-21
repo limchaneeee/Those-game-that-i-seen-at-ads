@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class UI_Resume : UIBase
+public class UI_StageClear : UIBase
 {
-    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button nextStageButton;
     [SerializeField] private Button mainButton;
     [SerializeField] private Button exitButton;
 
@@ -19,14 +16,15 @@ public class UI_Resume : UIBase
 
     private void InitialResumeUI()
     {
-        resumeButton.onClick.AddListener(OnResumeBtnClicked);
+        nextStageButton.onClick.AddListener(OnNextStageBtnClicked);
         exitButton.onClick.AddListener(OnExitBtnClicked);
         mainButton.onClick.AddListener(OnMainBtnClicked);
+        Time.timeScale = 0f;
     }
 
-    private void OnResumeBtnClicked()
+    private void OnNextStageBtnClicked()
     {
-        GameManager.Instance.PauseGame();
+        // TODO: 다음 스테이지 정보를 가지고 다시 시작하도록 하기 + UI닫기
     }
 
     private void OnExitBtnClicked()

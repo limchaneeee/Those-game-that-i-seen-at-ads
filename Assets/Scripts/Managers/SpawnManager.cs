@@ -30,6 +30,8 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         bossSpawnManager = GetComponent<BossSpawnManager>();
         objectSpawner = GetComponent<ObjectSpawner>();
         enemySpawn = GetComponent<EnemySpawn>();
+        int stageIndex = GameManager.Instance.SelectedStageIndex;
+        StartStage(stageIndex);
     }
 
     public void StartStage(int stageIndex)
