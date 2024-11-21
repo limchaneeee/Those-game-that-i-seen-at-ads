@@ -16,7 +16,7 @@ public class Progress : MonoBehaviour
     [SerializeField] private float maxGauge = 100;
 
     private event Action onProgress;
-    private event Action onGaugeFull;  // º¸½º ½ºÆù ÀÌº¥Æ®
+    private event Action onGaugeFull;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
     private void Awake()
     {
@@ -41,7 +41,6 @@ public class Progress : MonoBehaviour
         }
         else
         {
-            Debug.Log("½ºÅ×ÀÌÁö Å¬¸®¾î");
             onGaugeFull?.Invoke();
             onGaugeFull = null;
         }
