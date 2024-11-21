@@ -131,7 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPos: {fileID: 237148194212139158}
-  bulletParticlePrefab: {fileID: 0}
+  bulletParticlePrefab: {fileID: 7226583673155636401, guid: 6e33b6e4465559740804af0985bcea9f,
+    type: 3}
   shootCoolTime: 0
 --- !u!114 &7672509013490622180
 MonoBehaviour:

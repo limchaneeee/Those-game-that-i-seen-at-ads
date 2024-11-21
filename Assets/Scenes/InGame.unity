@@ -2043,7 +2043,7 @@ MonoBehaviour:
     prefab: {fileID: 4018023256880076457, guid: 5a02891cbe15154489b952995ef38813,
       type: 3}
   - type: 3
-    amount: 50
+    amount: 100
     prefab: {fileID: 7355188298542707812, guid: 5888fbed80f7cb34fae1669fc6975429,
       type: 3}
 --- !u!4 &562993874
@@ -3572,17 +3572,7 @@ MonoBehaviour:
   bossSpawnManager: {fileID: 0}
   objectSpawner: {fileID: 0}
   enemySpawn: {fileID: 0}
-  stageConfigs:
-  - {fileID: 11400000, guid: b4647faa8d07bd145ad448d141888d37, type: 2}
-  - {fileID: 11400000, guid: ff88ebe5b014a3e45aeeb04cdc5b59f7, type: 2}
-  - {fileID: 11400000, guid: d37e2fa027dd8404080a6f6cb148593c, type: 2}
-  - {fileID: 11400000, guid: a78634de0c20a464ab9ad63ff7313353, type: 2}
-  - {fileID: 11400000, guid: a330657cec994a042b1126e66701c208, type: 2}
-  - {fileID: 11400000, guid: e8b6e7f159e3bf24982df84717606fa0, type: 2}
-  - {fileID: 11400000, guid: c64197c8fd0d4944e9ca5c4f79cc5222, type: 2}
-  - {fileID: 11400000, guid: babb2eeec46590f4f83a76bb8c3c8883, type: 2}
-  - {fileID: 11400000, guid: d46c468ffd2426048bef92ccc974adfb, type: 2}
-  - {fileID: 11400000, guid: 7eda7e2b085d7ae47bf4f59c6fa762db, type: 2}
+  stageConfigs: []
   isBossDead: 0
 --- !u!1001 &976563753
 PrefabInstance:
