@@ -13,7 +13,7 @@ public class BossSpawnManager : MonoBehaviour
     private float moveSpeed;
 
     [Header("BossSO Reference")]
-    [SerializeField] private BossSO bossSO;
+    public BossSO bossSO;
 
     [Header("Progress Reference")]
     [SerializeField] private Progress progressScript;

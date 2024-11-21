@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af4c74c1a8169c4bb8b85b251730035, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  playerMoveSpeed: 10
+  playerMoveSpeed: 5
   shootCoolTime: 0.4
-  shootDamage: 7.5559564
-  upgradeShootCoolTimeValue: 0.030478802
+  shootDamage: 5
+  upgradeShootCoolTimeValue: 1

@@ -5,7 +5,6 @@ using System.Collections;
 public class Boss : MonoBehaviour, ICollisionHandler
 {
     [Header("Boss Stats")]
-    [SerializeField] private BossSO bossData;  // SO 데이터
     private float currentHp;
     private bool isDead = false;
 
@@ -28,7 +27,7 @@ public class Boss : MonoBehaviour, ICollisionHandler
 
     private void Start()
     {
-        currentHp = bossData.BossData.BossHp;
+        currentHp = SpawnManager.Instance.bossSpawnManager.bossSO.BossData.BossMaxHp;
 
         StartCoroutine(AttackPatternRoutine());
 
@@ -93,7 +92,7 @@ public class Boss : MonoBehaviour, ICollisionHandler
     {
         if (healthBarFill != null)
         {
-            float healthPercentage = currentHp / bossData.BossData.BossHp;
+            float healthPercentage = currentHp / SpawnManager.Instance.bossSpawnManager.bossSO.BossData.BossMaxHp;
             healthBarFill.fillAmount = Mathf.Clamp01(healthPercentage);
         }
     }
@@ -123,6 +122,7 @@ public class Boss : MonoBehaviour, ICollisionHandler
         OnBossDeath?.Invoke();
 
         Destroy(gameObject, 1f);
+        CharacterManager.Instance.Player.playerSO.InitPlayerStat();
         UIManager.Instance.Show<UI_StageClear>();
     }
 

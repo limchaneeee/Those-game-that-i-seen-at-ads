@@ -105,10 +105,8 @@ public class SoundManager : MonoSingleton<SoundManager>
         {
             return;
         }
-        // this code will be Delete
         if (!soundFXDictionary.TryGetValue(sfxType, out var clip))
         {
-            Debug.LogError($"{sfxType} not found");
             return;
         }
 
@@ -129,11 +127,6 @@ public class SoundManager : MonoSingleton<SoundManager>
             availableSource.clip = clip;
             availableSource.volume = soundFXVolume;
             availableSource.Play();
-        }
-        // this code will be Delete
-        else
-        {
-            Debug.LogError($"{sfxType} not found");
         }
     }
 

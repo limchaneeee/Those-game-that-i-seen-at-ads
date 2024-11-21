@@ -14,11 +14,11 @@ public class ObjectSpawner : MonoBehaviour
         maxSpawnObjectNumber = spawnPoints.Length;
         spawnWait = new WaitForSeconds(spawnInterval);
     }
-
-    private void Start()
-    {
-        StartCoroutine(RepeatSpawn());
-    }
+    //
+    // private void Start()
+    // {
+    //     StartCoroutine(RepeatSpawn());
+    // }
 
     private int RandomSpawnNumber()
     {

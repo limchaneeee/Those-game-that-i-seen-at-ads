@@ -23,4 +23,12 @@ public class PlayerSO : ScriptableObject
         float changed = shootCoolTime * upgradeShootCoolTimeValue;
         return changed;
     }
+
+    public void InitPlayerStat()
+    {
+        playerMoveSpeed = 5f;
+        shootCoolTime = 0.4f;
+        shootDamage = 5f;
+        upgradeShootCoolTimeValue = 1f;
+    }
 }

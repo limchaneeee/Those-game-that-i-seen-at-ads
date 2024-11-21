@@ -9,10 +9,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private Vector2 spawnXRange = new Vector2(-3.6f, 3.6f); 
     [SerializeField] private float spawnZ = 34f;
 
-    private void OnEnable()
-    {
-        StartCoroutine(SpawnEnemies());
-    }
+
     private IEnumerator SpawnEnemies()
     {
         while (true)
