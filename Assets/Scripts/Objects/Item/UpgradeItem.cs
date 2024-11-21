@@ -85,7 +85,7 @@ public class UpgradeItem : MonoBehaviour, ICollisionHandler
         }
         else if (type == UpgradeType.ShootCoolTime)
         {
-            CharacterManager.Instance.Player.playerSO.upgradeShootCoolTimeValue -= upgradeValue;
+            CharacterManager.Instance.Player.playerSO.ChangeUpgradeShootCoolTimeValue(upgradeValue);
             CharacterManager.Instance.Player.shooting.UpgradeShootCoolTime();
         }
     }

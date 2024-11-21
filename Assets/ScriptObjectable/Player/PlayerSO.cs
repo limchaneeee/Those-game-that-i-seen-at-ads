@@ -12,4 +12,15 @@ public class PlayerSO : ScriptableObject
     //public int playerCloneNumber;
 
     public float upgradeShootCoolTimeValue;
+
+    public void ChangeUpgradeShootCoolTimeValue(float amount)
+    {
+        upgradeShootCoolTimeValue = Mathf.Clamp(upgradeShootCoolTimeValue - amount, 0.3f, 1f);
+    }
+
+    public float UpgradeShootCoolTime()
+    {
+        float changed = shootCoolTime * upgradeShootCoolTimeValue;
+        return changed;
+    }
 }

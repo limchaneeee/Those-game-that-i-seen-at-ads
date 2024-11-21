@@ -19,37 +19,6 @@ public class UIObjectCount : MonoBehaviour
         UpdateUI();
     }
 
-    public void UpdateCountUI(int _count, CloneVariationType _cloneVariationType)
-    {
-        count = _count;
-        if (_cloneVariationType == CloneVariationType.SubstractAdd)
-        {
-            sb.Clear();
-            
-            if (count >= 0)
-            {
-                sb.Append("+");
-            }
-            sb.Append(count);
-        }
-        // else if (_cloneVariationType == CloneVariationType.DivideMultiply)
-        // {
-        //     sb.Clear();
-        //     if (count >= 0)
-        //     {
-        //         sb.Append('��');
-        //     }
-        //     else
-        //     {
-        //         sb.Append('��');
-        //     }
-        //     count = Mathf.Abs(count);
-        //     sb.Append(count);
-        // }
-        //
-        // UpdateUI();
-    }
-
     public void UpdateUI()
     {
         countTxt.text = sb.ToString();
