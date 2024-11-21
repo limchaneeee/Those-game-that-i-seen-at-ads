@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerCondition : MonoBehaviour
 {
-    [SerializeField] private LayerMask dieLayer; //ÆÄ±«°¡´ÉÇÑ ¿ÀºêÁ§Æ®, Àû±º, º¸½º
+    [SerializeField] private LayerMask dieLayer; //ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
     private void OnCollisionEnter(Collision collision)
     {
         if(((1 << collision.gameObject.layer) & dieLayer) != 0)
         {
-            Destroy(gameObject); //³ªÁß¿¡´Â ÆÄ±«¸»°í, ÇÃ·¹ÀÌ¾î Ç®¿¡ ³Ö¾ú´Ù »¯´Ù·Î º¯°æ¿¹Á¤
+            Destroy(gameObject); //ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Ç®ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½æ¿¹ï¿½ï¿½
+            UIManager.Instance.Show<UI_GameOver>();
         }
 
     }
