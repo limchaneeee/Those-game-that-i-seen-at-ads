@@ -39,6 +39,6 @@ public class PlayerShooting : MonoBehaviour
 
     public void UpgradeShootCoolTime()
     {
-        shootCoolTime *= CharacterManager.Instance.Player.playerSO.upgradeShootCoolTimeValue;
+        shootCoolTime = CharacterManager.Instance.Player.playerSO.UpgradeShootCoolTime();
     }
 }
