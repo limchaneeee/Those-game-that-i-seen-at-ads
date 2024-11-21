@@ -17,6 +17,7 @@ public class TitleText : UIBase
             isHidden = true;
             UIManager.Instance.Show<UI_Stage>();
             CloseAnimation();
+            isHidden = false;
             Hide();
         }
     }

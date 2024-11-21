@@ -56,8 +56,19 @@ public class UIManager : MonoSingleton<UIManager>
     public void Hide(string uiName)
     {
         UIBase go = uiList.Find(obj=> obj.name == uiName);
-        uiList.Remove(go);
+        if (uiList.Count != 0)
+        {
+            uiList.Remove(go);
+        }
         Destroy(go.canvas.gameObject);
     }
 
+    public void ClearAllUI()
+    {
+        foreach (var ui in uiList)
+        {
+            Destroy(ui.canvas.gameObject);
+        }
+        uiList.Clear();
+    }
 }

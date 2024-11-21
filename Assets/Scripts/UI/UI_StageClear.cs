@@ -39,6 +39,7 @@ public class UI_StageClear : UIBase
     private void OnMainBtnClicked()
     {
         SceneManager.LoadScene("StartScene");
+        UIManager.Instance.ClearAllUI();
         Hide();
     }
 }
