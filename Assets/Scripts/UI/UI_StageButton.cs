@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +16,6 @@ public class UI_StageButton : MonoBehaviour
 
     private void OnButtonClick()
     {
-        // TODO: 게임매니저에 스테이지 정보 전해주기 or 해당 스테이지 시작
         GameManager.Instance.SetSelectedStageIndex(stageIndex);
         UIManager.Instance.Hide("UI_Stage");
         SceneManager.LoadScene("InGame");

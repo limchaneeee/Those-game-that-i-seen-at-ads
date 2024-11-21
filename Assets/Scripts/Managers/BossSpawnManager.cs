@@ -24,7 +24,7 @@ public class BossSpawnManager : MonoBehaviour
     {
         if (progressScript == null)
         {
-            progressScript = FindObjectOfType<Progress>(); // Progress ��ü
+            progressScript = FindObjectOfType<Progress>();
         }
 
         if (progressScript == null)
@@ -95,7 +95,6 @@ public class BossSpawnManager : MonoBehaviour
         bossSO = newBossSO;
     }
 
-    // ���� ���� ó��
     private void HandleBossDeath()
     {
         SpawnManager.Instance.SetSpawninActive(true);

@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public enum BgmType
 {
@@ -18,11 +16,7 @@ public enum SoundFXType
 }
 
 public class SoundManager : MonoSingleton<SoundManager>
-{
-    // How To Use? just code where you want
-    // SoundManager.Instance.PlayBGM(BgmType.xxx)
-    // SoundManager.Instance.PlaySFX(SoundFXType.xxx)
-    
+{    
     [Header("Audio Source")] 
     private AudioSource bgmSource;
     private List<AudioSource> sfxSources;
@@ -87,10 +81,8 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     public void PlayBGM(BgmType bgmType)
     {
-        // this code will be delete(debug code)
         if (!bgmDictionary.TryGetValue(bgmType, out var clip))
         {
-            Debug.LogError($"{bgmType} not found");
             return;
         }
         

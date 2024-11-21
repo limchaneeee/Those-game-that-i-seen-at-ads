@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +7,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Move")]
     private Vector2 moveInput;
-    //[SerializeField] private float moveSpeed = 10f; //SO���� ������ ������
 
     private void Awake()
     {

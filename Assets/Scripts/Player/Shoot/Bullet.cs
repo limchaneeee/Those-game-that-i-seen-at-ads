@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -6,8 +5,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float lifeTime = 2f;
     [SerializeField] private GameObject bulletParticlePrefab;
-
-    //private ObjectPoolManager bulletPool;
 
     private void OnEnable()
     {
@@ -34,7 +31,6 @@ public class Bullet : MonoBehaviour
         ObjectPoolManager.Instance.GetBackObject(gameObject,ObjectPoolType.ProjectileObject);
     }
 
-    //Test
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Boss") || other.CompareTag("Obstacle")) 
