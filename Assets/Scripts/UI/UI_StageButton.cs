@@ -17,8 +17,7 @@ public class UI_StageButton : MonoBehaviour
     private void OnButtonClick()
     {
         GameManager.Instance.SetSelectedStageIndex(stageIndex);
-        UIManager.Instance.Hide("UI_Stage");
-        SceneManager.LoadScene("InGame");
+        UIManager.Instance.HideAndTransitionScene("UI_Stage","InGame");
     }
 
     public void SetUpButton(int index)

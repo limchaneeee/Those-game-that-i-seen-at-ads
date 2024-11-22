@@ -35,7 +35,6 @@ public class UI_GameOver : UIBase
 
     private void OnMainBtnClicked()
     {
-        SceneManager.LoadScene("StartScene");
-        Hide();
+        UIManager.Instance.HideAndTransitionScene("UI_GameOver","StartScene");
     }
 }
