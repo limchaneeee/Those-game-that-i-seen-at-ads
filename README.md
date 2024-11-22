@@ -130,5 +130,44 @@ https://assetstore.unity.com/packages/vfx/particles/hit-impact-effects-free-2183
 </div>
 </details>
 
+</br>
+
+<details>
+<summary>씬전환 시 발생하는 UI 버그</summary>
+<div markdown="1">
+
+- 문제
+```cs
+private void OnMainBtnClicked()
+    {
+        SceneManager.LoadScene("StartScene")
+        Hide()
+        UIManager.Instance.ClearAllUI()
+    }
+```
+씬 전환 시 계속 UIManager에서 리스트에 해당하는 UI가 없다고 오류가 뜨고 NullReferenceException이 발생하고 별의 별 문제가 다 일어났습니다.
+
+- 해결: 곰곰히 생각해보니 씬을 전환하면 전환되면서 해당 오브젝트들은 파괴되는데 LoadScene을하고나서 Hide()와 ClearAllUI()가 실행되지 않을 것입니다.
+  또한 메서드 실행 순서를 바꿔 Hide() -> ClearAllUI() -> LoadScene() 순으로 코드를 실행시켜도 마찬가지로 해당 UI오브젝트는 Hide에서 이미 파괴되기때문에
+  씬전환이 일어나지 않습니다.
+  Hide()메서드는 결과적으로 UIManager의 Hide()를 실행시키는 것이기 때문에, 일단 UIManager에서 해당 UI를 없애는 Hide()와 LoadScene()을 같이 실행시켜주는
+  HideAndTransition()이라는 메서드를 새로 만들어줬습니다.
+  ```cs
+  public void HideAndTransitionScene(string uiName, string sceneName)
+    {
+        UIBase go = uiList.Find(obj=> obj.name == uiName);
+        
+        uiList.Remove(go);
+        Destroy(go.canvas.gameObject);
+        
+        GameManager.Instance.LoadScene(sceneName);
+    }
+  ```
+  게임매니저의 LoadScene()메서드는 기존 씬매니저의 LoadScene()에서 UI리스트를 초기화하는 로직을 추가해놓은 메서드입니다.
+  따라서, UI없애기와 씬전환이 동시에 발생해야하는 UI들에게는 Hide()가 아닌 HideAndTransition()을 사용하면서 문제를 해결했습니다.
+
+</div>
+</details>
+
 
 
