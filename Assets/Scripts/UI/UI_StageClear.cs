@@ -25,9 +25,9 @@ public class UI_StageClear : UIBase
     private void OnNextStageBtnClicked()
     {
         GameManager.Instance.SelectedStageIndex = SpawnManager.Instance.currentStageIndex;
-        SceneManager.LoadScene("InGame");
         Time.timeScale = 1f;
-        Hide();
+        GameManager.Instance._isGamePlaying = true;
+        UIManager.Instance.HideAndTransitionScene("UI_StageClear", "InGame");
     }
 
     private void OnExitBtnClicked()

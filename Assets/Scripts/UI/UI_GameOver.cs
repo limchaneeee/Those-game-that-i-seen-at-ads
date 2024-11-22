@@ -24,8 +24,7 @@ public class UI_GameOver : UIBase
 
     private void OnRetryBtnClicked()
     {
-        SceneManager.LoadScene("InGame"); 
-        Hide();
+        UIManager.Instance.HideAndTransitionScene("UI_GameOver", "InGame");
     }
 
     private void OnExitBtnClicked()
