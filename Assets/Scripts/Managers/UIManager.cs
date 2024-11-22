@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
@@ -69,5 +70,15 @@ public class UIManager : MonoSingleton<UIManager>
             Destroy(ui.canvas.gameObject);
         }
         uiList.Clear();
+    }
+
+    public void HideAndTransitionScene(string uiName, string sceneName)
+    {
+        UIBase go = uiList.Find(obj=> obj.name == uiName);
+        
+        uiList.Remove(go);
+        Destroy(go.canvas.gameObject);
+        
+        GameManager.Instance.LoadScene(sceneName);
     }
 }

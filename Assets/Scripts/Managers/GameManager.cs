@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -55,6 +56,12 @@ public class GameManager : MonoSingleton<GameManager>
     public void SetSelectedStageIndex(int stageIndex)
     {
         SelectedStageIndex = stageIndex;
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        UIManager.Instance.ClearAllUI();
     }
     
 }
